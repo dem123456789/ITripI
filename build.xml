@@ -1,0 +1,89 @@
+<project name="todo" default="compile" basedir=".">
+
+  <property environment="env"/>
+  <property name="app.name"      value="ITripCS2340"/>
+  <property name="app.path"      value="/${app.name}"/>
+  <property name="app.version"   value="0.1-dev"/>
+  <property name="build.home"    value="${basedir}/target"/>
+  <property name="catalina.home" value="${env.CATALINA_HOME}"/>
+  <property name="src.main"      value="${basedir}/src/main/"/>
+  <property name="src.test"      value="${basedir}/src/test/"/>
+  <property name="dir.reports"   value="${basedir}/target/reports/"/>
+  <property name="web.home"      value="${basedir}/web"/>
+
+  <path id="compile.classpath">
+
+    <!-- Include all elements that Tomcat exposes to applications -->
+    <fileset dir="${catalina.home}/bin">
+      <include name="*.jar"/>
+    </fileset>
+    <pathelement location="${catalina.home}/lib"/>
+    <fileset dir="${catalina.home}/lib">
+      <include name="*.jar"/>
+    </fileset>
+    <fileset dir="lib">
+      <include name="**/*.jar"/>
+    </fileset>
+    <pathelement path="${build.home}/WEB-INF/classes" />
+  </path>
+
+  <target name="clean"
+   description="Delete old build and dist directories">
+    <delete dir="${build.home}"/>
+  </target>
+
+  <target name="compile" description="Compile Java sources">
+
+    <!-- Compile Java classes as necessary -->
+    <mkdir    dir="${build.home}/WEB-INF/classes"/>
+    <javac srcdir="${src.main}/java"
+          destdir="${build.home}/WEB-INF/classes">
+        <classpath refid="compile.classpath"/>
+    </javac>
+
+  </target>
+
+  <target name="compile-tests" depends="compile" description="Compile tests">
+
+    <!-- Compile Java classes as necessary -->
+    <mkdir    dir="${build.home}/WEB-INF/classes"/>
+    <javac srcdir="${src.test}"
+          destdir="${build.home}/WEB-INF/classes">
+        <classpath refid="compile.classpath"/>
+    </javac>
+
+  </target>
+
+  <target name="test" depends="compile-tests">
+    <mkdir    dir="${dir.reports}"/>
+    <junit printsummary="yes" haltonfailure="no">
+      
+      <classpath refid="compile.classpath"/>
+      
+      <formatter type="plain"/>
+
+      <batchtest fork="yes" todir="${dir.reports}">
+        <fileset dir="${src.test}/java">
+          <include name="**/*Test.java"/>
+        </fileset>
+      </batchtest>
+      
+    </junit>
+    
+  </target>
+
+  <target name="prepare" depends="compile">
+    <copy  todir="${build.home}">
+      <fileset dir="${src.main}/webapp"/>
+    </copy>    
+  </target>
+
+  <target name="deploy" depends="prepare">
+    <mkdir dir="${catalina.home}/webapps/${app.name}"/>
+    
+    <copy  todir="${catalina.home}/webapps/${app.name}">
+      <fileset dir="${build.home}"/>
+    </copy>    
+  </target>
+
+</project>
