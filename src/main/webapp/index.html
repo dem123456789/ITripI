@@ -52,7 +52,8 @@
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
-      testAPI();
+      //testAPI();
+      window.location="Hello.html";
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Please log ' +
@@ -134,6 +135,7 @@ FB.login(function(response) {
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
+
     });
   }
 </script>
@@ -143,6 +145,13 @@ FB.login(function(response) {
   the JavaScript SDK to present a graphical Login button that triggers
   the FB.login() function when clicked.
 -->
+<form action="Hello.html">
+    Username: <input type="text" name="username"><br>
+    Password: <input type="text" name="password"><br>
+    <p><button type="submit" name="Sign in" value="Sign in">Sign in</button></a>
+       <button type="submit" name="Register" value="Register">Register</button></a></p>
+</form>
+
 
 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 </fb:login-button>
