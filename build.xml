@@ -1,4 +1,4 @@
-<project name="todo" default="compile" basedir=".">
+<project name="ITripCS2340" default="compile" basedir=".">
 
   <property environment="env"/>
   <property name="app.name"      value="ITripCS2340"/>
