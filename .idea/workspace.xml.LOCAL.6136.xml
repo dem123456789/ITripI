@@ -33,7 +33,6 @@
           </provider>
         </entry>
       </file>
-<<<<<<< HEAD
       <file leaf-file-name="Login.jsp" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/Login.jsp">
           <provider selected="true" editor-type-id="text-editor">
@@ -69,13 +68,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="357">
               <caret line="10" column="42" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="42" />
-=======
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="83.85714" vertical-offset="2614" max-vertical-offset="3192">
-              <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
->>>>>>> 00f872b22bb7723afb6c2939b1ccee42f61fecbd
               <folding />
             </state>
           </provider>
@@ -94,68 +86,13 @@
       <file leaf-file-name="HelloWorld.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/gatech/cs2340/ITripCS2340/Controller/HelloWorld.java">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
             <state vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="510">
               <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
-=======
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="456">
-              <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
->>>>>>> 00f872b22bb7723afb6c2939b1ccee42f61fecbd
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-<<<<<<< HEAD
-=======
-      <file leaf-file-name="Hash.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/gatech/cs2340/ITripCS2340/Controller/Hash.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.68976897" vertical-offset="0" max-vertical-offset="1311">
-              <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1546#1576#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Password.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/gatech/cs2340/ITripCS2340/Controller/Password.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="152" max-vertical-offset="931">
-              <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-              <folding>
-                <element signature="e#314#315#0" expanded="true" />
-                <element signature="e#354#355#0" expanded="true" />
-                <element signature="e#402#403#0" expanded="true" />
-                <element signature="e#442#443#0" expanded="true" />
-                <element signature="e#477#478#0" expanded="true" />
-                <element signature="e#508#509#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Username.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/gatech/cs2340/ITripCS2340/Controller/Username.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="114" max-vertical-offset="817">
-              <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-              <folding>
-                <element signature="e#315#316#0" expanded="true" />
-                <element signature="e#355#356#0" expanded="true" />
-                <element signature="e#403#404#0" expanded="true" />
-                <element signature="e#443#444#0" expanded="true" />
-                <element signature="e#478#479#0" expanded="true" />
-                <element signature="e#510#511#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
->>>>>>> 00f872b22bb7723afb6c2939b1ccee42f61fecbd
     </leaf>
   </component>
   <component name="FindManager">
@@ -173,20 +110,11 @@
         <option value="$PROJECT_DIR$/src/main/java/edu/gatech/cs2340/ITripCS2340/Controller/HashTableInterface.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/gatech/cs2340/ITripCS2340/Controller/MapEntry.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/gatech/cs2340/ITripCS2340/Controller/HashTable.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/gatech/cs2340/ITripCS2340/Controller/Account.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/index.html" />
-<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/main/webapp/style.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/Register.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/Login.jsp" />
-=======
-        <option value="$PROJECT_DIR$/src/main/java/edu/gatech/cs2340/ITripCS2340/Controller/UserDatabase.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/gatech/cs2340/ITripCS2340/Controller/Account.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/gatech/cs2340/ITripCS2340/Controller/username.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/gatech/cs2340/ITripCS2340/Controller/password.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/gatech/cs2340/ITripCS2340/Controller/Password.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/gatech/cs2340/ITripCS2340/Controller/Username.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/gatech/cs2340/ITripCS2340/Controller/Hash.java" />
->>>>>>> 00f872b22bb7723afb6c2939b1ccee42f61fecbd
       </list>
     </option>
   </component>
@@ -247,7 +175,6 @@
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-<<<<<<< HEAD
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="ITripPlanner" />
@@ -310,8 +237,6 @@
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-=======
->>>>>>> 00f872b22bb7723afb6c2939b1ccee42f61fecbd
         </subPane>
       </pane>
     </panes>
@@ -337,7 +262,6 @@
     <property name="FullScreen" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="recentsLimit" value="5" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -494,13 +418,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-<<<<<<< HEAD
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="false" />
-=======
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
-    <editor active="true" />
->>>>>>> 00f872b22bb7723afb6c2939b1ccee42f61fecbd
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -721,14 +640,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/gatech/cs2340/ITripCS2340/Controller/HelloWorld.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="456">
-          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/Hello.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="896">
@@ -737,47 +648,24 @@
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/main/webapp/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="73" max-vertical-offset="1224">
           <caret line="41" column="14" selection-start-line="41" selection-start-column="14" selection-end-line="41" selection-end-column="14" />
-=======
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="83.85714" vertical-offset="2614" max-vertical-offset="3192">
-          <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
->>>>>>> 00f872b22bb7723afb6c2939b1ccee42f61fecbd
           <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/main/webapp/Register.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="748">
           <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
           <folding />
-=======
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/gatech/cs2340/ITripCS2340/Controller/Username.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="114" max-vertical-offset="817">
-          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-          <folding>
-            <element signature="e#315#316#0" expanded="true" />
-            <element signature="e#355#356#0" expanded="true" />
-            <element signature="e#403#404#0" expanded="true" />
-            <element signature="e#443#444#0" expanded="true" />
-            <element signature="e#478#479#0" expanded="true" />
-            <element signature="e#510#511#0" expanded="true" />
-          </folding>
->>>>>>> 00f872b22bb7723afb6c2939b1ccee42f61fecbd
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/gatech/cs2340/ITripCS2340/Controller/Password.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.html">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
         <state vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="357">
           <caret line="10" column="42" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="42" />
           <folding />
@@ -789,29 +677,6 @@
         <state vertical-scroll-proportion="0.62053573" vertical-offset="2232" max-vertical-offset="3213">
           <caret line="164" column="28" selection-start-line="164" selection-start-column="28" selection-end-line="164" selection-end-column="28" />
           <folding />
-=======
-        <state vertical-scroll-proportion="0.0" vertical-offset="152" max-vertical-offset="931">
-          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-          <folding>
-            <element signature="e#314#315#0" expanded="true" />
-            <element signature="e#354#355#0" expanded="true" />
-            <element signature="e#402#403#0" expanded="true" />
-            <element signature="e#442#443#0" expanded="true" />
-            <element signature="e#477#478#0" expanded="true" />
-            <element signature="e#508#509#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/gatech/cs2340/ITripCS2340/Controller/Hash.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68976897" vertical-offset="0" max-vertical-offset="1311">
-          <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1546#1576#0" expanded="true" />
-          </folding>
->>>>>>> 00f872b22bb7723afb6c2939b1ccee42f61fecbd
         </state>
       </provider>
     </entry>
@@ -856,7 +721,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>IDEA IC-135.690</last-edited>
+          <last-edited>1.7</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -873,6 +738,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
