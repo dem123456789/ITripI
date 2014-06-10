@@ -27,7 +27,7 @@
 
         <tr align="left">
             <td >
-                <form action="" method="POST">
+                <form action="Login/" method="POST">
                     <input type="button" value="Register" name="registerButton" id="registerButton" class="clickButton"/>
                 </form>
             </td>

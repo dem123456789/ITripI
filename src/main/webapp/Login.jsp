@@ -8,7 +8,6 @@
 </head>
 <body>
 
-<!--
 <div id="fb-root"></div>
 
 <script>(function(d, s, id) {
@@ -143,15 +142,13 @@ FB.login(function(response) {
     });
   }
 </script>
--->
+
 
 <!--
   Below we include the Login Button social plugin. This button uses
   the JavaScript SDK to present a graphical Login button that triggers
   the FB.login() function when clicked.
 -->
-
-
 <div id="LoginComponentsContainer">
     <table cellspacing="1" cellpadding="3" border="0" >
         <tr>
@@ -163,22 +160,19 @@ FB.login(function(response) {
         </tr>
         <tr align="left">
             <td colspan="2">
-                <form action="" method="POST">
+                <form action="Login/" method="POST">
                     <input type="submit" value="Login" name="loginButton" id="loginButton" class="clickButton"/>
                     <form action="" id="forgotPasswordLink">forgot password</form>
                 </form>
                 <input type="button" onclick="location.href='Register.jsp';" value="Register" name="registerButton" id="registerButton" class="clickButton"/>
+                <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+                </fb:login-button>
             </td>
         </tr>
     </table>
 </div>
-
-<!--
-    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-    </fb:login-button>
 <div id="status">
 </div>
--->
 
 </body>
 </html>
