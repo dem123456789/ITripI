@@ -1,10 +1,9 @@
 package edu.gatech.cs2340.ITripCS2340.Model;
-import java.beans.XMLDecoder;
-import java.beans.XMLEncoder;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Hashtable;
 /**
  * Created by Dreamsoul on 2014/6/8.
@@ -26,6 +25,11 @@ public class Hash {
     }
 
     public void addAccount(Username username, Password password) throws IOException {
+        try {
+            inputFile();
+        } catch (IOException e) {
+            return;
+        }
         if (password != null && username != null && !containsUsername(username)) {
             data.put(username, password);
             outputFile();
@@ -33,6 +37,11 @@ public class Hash {
     }
 
     public void removeAccount(Username username) throws IOException {
+        try {
+            inputFile();
+        } catch (IOException e) {
+            return;
+        }
         if (username != null && containsUsername(username)) {
             data.remove(username);
             outputFile();
@@ -53,6 +62,11 @@ public class Hash {
     }
 
     public boolean checkCorrectPassword(Username username, Password password) {
+        try {
+            inputFile();
+        } catch (IOException e) {
+            return false;
+        }
         if(!containsUsername(username)) {
             return false;
         }
@@ -60,19 +74,26 @@ public class Hash {
     }
 
     private void outputFile() throws IOException {
-        FileOutputStream stream = new FileOutputStream(relativePath+"/tmp.xml");
-        XMLEncoder encoder = new XMLEncoder(stream);
-        encoder.writeObject(data);
-        encoder.close();
-        stream.close();
+        FileOutputStream fileOut =
+                new FileOutputStream(relativePath+"/tmp.ser");
+        ObjectOutputStream output = new ObjectOutputStream(fileOut);
+        output.writeObject(data);
+        output.close();
+        fileOut.close();
+        System.out.printf("Serialized data is saved in /tmp.ser");
     }
 
     @SuppressWarnings("unchecked")
     private void inputFile() throws IOException {
-            FileInputStream stream = new FileInputStream(relativePath+"/tmp.xml");
-            XMLDecoder decoder = new XMLDecoder(stream);
-            data = (Hashtable) decoder.readObject();
-            decoder.close();
-            stream.close();
+        FileInputStream fileIn = new FileInputStream(relativePath+"/tmp.ser");
+        ObjectInputStream input = new ObjectInputStream(fileIn);
+        try {
+            data = (Hashtable) input.readObject();
+        } catch (ClassNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        input.close();
+        fileIn.close();
     }
 }
