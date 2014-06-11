@@ -24,9 +24,9 @@ public class JSPStringConstants {
     //files
     //don't need leading '/' taken care of in code
     public static final String MAIN_JSP = "Main.jsp";
-    public static final String LOGIN_JSP = "Login.jsp";
-    public static final String REGISTER_JSP = "Register.jsp";
-    public static final String MANAGER_JSP = "Manager.jsp";
-    public static final String USERNAME_JSP = "Username.jsp";
-    public static final String PASSWORD_JSP = "Password.jsp";
+    public static final String LOGIN_JSP = "Login/Login.jsp";
+    public static final String REGISTER_JSP = "Login/Register.jsp";
+    public static final String MANAGER_JSP = "Account_Management/Manager.jsp";
+    public static final String USERNAME_JSP = "Account_Management/Username.jsp";
+    public static final String PASSWORD_JSP = "Account_Management/Password.jsp";
 }
