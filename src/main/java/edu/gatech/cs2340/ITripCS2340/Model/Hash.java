@@ -14,23 +14,25 @@ public class Hash {
     private String relativePath;
 
     public Hash(String path) throws IOException {
-        relativePath=path;
+        relativePath = path;
         try {
             inputFile();
         } catch (IOException e) {
-                data = new Hashtable<Username, Password>();
-                outputFile();
+            data = new Hashtable<Username, Password>();
+            outputFile();
         }
 
     }
 
-    public void addAccount(Username username, Password password) throws IOException {
+    public void addAccount(Username username, Password password)
+            throws IOException {
         try {
             inputFile();
         } catch (IOException e) {
             return;
         }
-        if (password != null && username != null && !containsUsername(username)) {
+        if (password != null && username != null &&
+                !containsUsername(username)) {
             data.put(username, password);
             outputFile();
         }
@@ -47,6 +49,7 @@ public class Hash {
             outputFile();
         }
     }
+
     public boolean containsPassword(Password password) {
         if (password != null) {
             return data.containsValue(password);
@@ -61,13 +64,14 @@ public class Hash {
         return false;
     }
 
-    public boolean checkCorrectPassword(Username username, Password password) {
+    public boolean checkCorrectPassword(Username username,
+                                        Password password) {
         try {
             inputFile();
         } catch (IOException e) {
             return false;
         }
-        if(!containsUsername(username)) {
+        if (!containsUsername(username)) {
             return false;
         }
         return data.get(username).equals(password);
@@ -75,17 +79,18 @@ public class Hash {
 
     private void outputFile() throws IOException {
         FileOutputStream fileOut =
-                new FileOutputStream(relativePath+"/tmp.ser");
+                new FileOutputStream(relativePath + "/tmp.ser");
         ObjectOutputStream output = new ObjectOutputStream(fileOut);
         output.writeObject(data);
         output.close();
         fileOut.close();
-        System.out.printf("Serialized data is saved in /tmp.ser");
+        System.out.println("Serialized data is saved in /tmp.ser");
     }
 
     @SuppressWarnings("unchecked")
     private void inputFile() throws IOException {
-        FileInputStream fileIn = new FileInputStream(relativePath+"/tmp.ser");
+        FileInputStream fileIn = new FileInputStream(relativePath +
+                "/tmp.ser");
         ObjectInputStream input = new ObjectInputStream(fileIn);
         try {
             data = (Hashtable) input.readObject();

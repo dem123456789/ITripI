@@ -1,3 +1,4 @@
+<%@ page import="edu.gatech.cs2340.ITripCS2340.Controller.JSPStringConstants"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,16 +13,16 @@
                 <table cellspacing="1" cellpadding="3" border="0" >
                     <tr>
                         <td>
-                            <%if(request.getAttribute("UserIncorrect")!=null){%>
+                            <%if(request.getAttribute(JSPStringConstants.USERNAME_TAKEN_ERROR)!=null){%>
                                 <I>Error Username Taken</I><%}%>
-                            <%String s=(String)request.getAttribute("NameString");
+                            <%String s=(String)request.getAttribute(JSPStringConstants.USERNAME_PARAM);
                                 if(s==null)
                                     s="";%>
                             <input  <%if(s==""){%>
                                          placeholder = "Account"<%}
                                       else{%>
-                                        value="<%=s%>"
-                                    <%}%> maxlength="40" size="25" name="username" type="text"/>
+                                        value=<%=s%>
+                                    <%}%> maxlength="40" size="25" name=<%=JSPStringConstants.USERNAME_PARAM%> type="text"/>
                         </td>
                     </tr>
                     <!-- <tr>
@@ -29,21 +30,28 @@
                     </tr> -->
                     <tr>
                         <td>
-                            <%s=(String)request.getAttribute("PassString");
+                            <%s=(String)request.getAttribute(JSPStringConstants.PASSWORD_PARAM);
                                 if(s==null)
                                     s="";%>
                             <input  <%if(s==""){%>
                                         placeholder = "Password"<%}
                                       else{%>
-                                        value="<%=s%>"
-                                    <%}%> id="password" type="password" size="25" name="password" />
+                                        value=<%=s%>
+                                    <%}%> id="password" size="25" name=<%=JSPStringConstants.PASSWORD_PARAM%> type="password"/>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <%if(request.getAttribute("PassDifferent")!=null){%>
+                            <%if(request.getAttribute(JSPStringConstants.PASSWORDS_NOT_SAME_ERROR)!=null){%>
                                 <I>Error passwords must be the same</I><%}%>
-                            <input id="ConformationPass" placeholder = "Confirm password" type="password" size="25" name="ConformationPass" />
+                            <%s=(String)request.getAttribute(JSPStringConstants.CONFIRM_PASSWORD_PARAM);
+                                if(s==null)
+                                    s="";%>
+                            <input  <%if(s==""){%>
+                                        placeholder = "Confirm password"<%}
+                                      else{%>
+                                        value="<%=s%>"
+                                    <%}%> id="ConformationPass" size="25" name=<%=JSPStringConstants.CONFIRM_PASSWORD_PARAM%> type="password"/>
                         </td>
                     </tr>
                     <tr align="left">

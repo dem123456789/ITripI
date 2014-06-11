@@ -1,19 +1,17 @@
-<%@ page import="edu.gatech.cs2340.ITripCS2340.Model.Username"%>
-<%Username user=(Username) request.getAttribute("Username"); %>
+<%@ page import="edu.gatech.cs2340.ITripCS2340.Controller.JSPStringConstants"%>
 <html>
     <body>
-        <form action="">
-            <input type="hidden" name="Username" value="<%=user.getUsername()%>"></input>
-            <input type="hidden" name="ManageAccount" value="true"></input>
-            <%if(request.getAttribute("PassError")!=null){%>
+        <form action="/ITripCS2340/ChangePassword/">
+            <%String s=(String)request.getAttribute(JSPStringConstants.USERNAME_PARAM);%>
+            <input type="hidden" name=<%=JSPStringConstants.USERNAME_PARAM%> value=<%=s%> ></input>
+            <%if(request.getAttribute(JSPStringConstants.PASSWORD_INCORRECT_ERROR)!=null){%>
                 <I>Error Password incorrect</I><%}%>
-            Old Password: <input type="password" name="oldPass"><br>
-            New Password: <input type="password" name="newPass"><br>
-            <p><button type="submit" name="changedPass" value="true">Change Password</button></p>
-        </form>
-        <form action="">
-            <input type="hidden" name="ManageAccount" value="true"></input>
-            <input type="hidden" name="Username" value="<%=user.getUsername()%>"></input>
+            Password: <input type="password" name=<%=JSPStringConstants.PASSWORD_PARAM%> ><br>
+            <%s=(String)request.getAttribute(JSPStringConstants.CONFIRM_PASSWORD_PARAM);
+                if(s==null)
+                    s="";%>
+            New Password: <input type="password" name=<%=JSPStringConstants.CONFIRM_PASSWORD_PARAM%> value=<%=s%> ><br>
+            <button type="submit" name="changedPass" value="true">Change Password</button>
             <button type="submit" name="Back" value="true">Back</button>
         </form>
     </body>
