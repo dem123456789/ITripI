@@ -52,7 +52,7 @@ public class ChangePassword extends SharedServletMethods {
             goToFileWithUser(request, response, user,
                     JSPStringConstants.PASSWORD_JSP);
         } else {
-            table.removeAccount(user);
+            table.removeAccount(user, oldPass);
             table.addAccount(user, newPass);
             goToFileWithUser(request, response, user,
                     JSPStringConstants.MANAGER_JSP);

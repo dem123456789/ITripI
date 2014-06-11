@@ -61,7 +61,7 @@ public class ChangeUserName extends SharedServletMethods {
             goToFileWithUser(request, response, user,
                     JSPStringConstants.USERNAME_JSP);
         } else {
-            table.removeAccount(user);
+            table.removeAccount(user, pass);
             table.addAccount(newUser, pass);
             goToFileWithUser(request, response, newUser,
                     JSPStringConstants.MANAGER_JSP);
