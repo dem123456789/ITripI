@@ -5,11 +5,13 @@
         <form action="">
             <input type="hidden" name="Username" value="<%=user.getUsername()%>"></input>
             <input type="hidden" name="ManageAccount" value="true"></input>
+            <%if(request.getAttribute("PassError")!=null){%>
+                <I>Error Password incorrect</I><%}%>
             Password: <input type="password" name="pass"><br>
             <%if(request.getAttribute("userError")!=null){%>
                 <I>Error Username taken</I><%}%>
             New User: <input type="text" name="newUser"><br>
-            <p><button type="submit" name="changedUser" value="true">Change Username</button></p>
+            <p><button type="submit" name="ChangedUser" value="true">Change Username</button></p>
         </form>
         <form action="">
             <input type="hidden" name="ManageAccount" value="true"></input>
