@@ -1,10 +1,13 @@
 package edu.gatech.cs2340.ITripCS2340.Controller;
 
-import java.io.*;
-import javax.servlet.*;
+import edu.gatech.cs2340.ITripCS2340.Model.Hash;
+import edu.gatech.cs2340.ITripCS2340.Model.Username;
+
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
-import edu.gatech.cs2340.ITripCS2340.Model.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
  * Created by Jonathan on 6/11/2014.

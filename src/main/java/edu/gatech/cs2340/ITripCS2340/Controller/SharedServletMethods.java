@@ -24,8 +24,10 @@ public abstract class SharedServletMethods extends HttpServlet {
 
     protected String getStringParameterSafely(
             HttpServletRequest request, String paramName) {
-        return request.getParameter(paramName) == null ? "" :
-                request.getParameter(paramName);
+        if (request.getParameter(paramName) == null) {
+            return "";
+        }
+        return request.getParameter(paramName);
     }
 
     protected void goToFileWithUser(HttpServletRequest request,

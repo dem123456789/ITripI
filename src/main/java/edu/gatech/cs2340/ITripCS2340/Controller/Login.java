@@ -1,10 +1,14 @@
 package edu.gatech.cs2340.ITripCS2340.Controller;
 
-import java.io.*;
-import javax.servlet.*;
+import edu.gatech.cs2340.ITripCS2340.Model.Hash;
+import edu.gatech.cs2340.ITripCS2340.Model.Password;
+import edu.gatech.cs2340.ITripCS2340.Model.Username;
+
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
-import edu.gatech.cs2340.ITripCS2340.Model.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
  * Created by Jonathan on 6/11/2014.
@@ -37,11 +41,11 @@ public class Login extends SharedServletMethods {
                 getStringParameterSafely(request,
                         JSPStringConstants.PASSWORD_PARAM));
         synchronized (this) {
-            LogIn(request, response, user, pass);
+            logIn(request, response, user, pass);
         }
     }
 
-    private void LogIn(HttpServletRequest request,
+    private void logIn(HttpServletRequest request,
                        HttpServletResponse response,
                        Username user, Password pass)
             throws ServletException, IOException {
