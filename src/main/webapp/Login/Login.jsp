@@ -4,7 +4,7 @@
     <head>
         <title>Login</title>
         <meta charset="UTF-8">
-        <link href="style.css" rel="stylesheet" type="text/css">
+        <link href="/ITripCS2340/<%=JSPStringConstants.STYLE_CSS%>" rel="stylesheet" type="text/css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     </head>
     <body>
