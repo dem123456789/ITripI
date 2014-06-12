@@ -43,7 +43,10 @@ public class ChangePassword extends SharedServletMethods {
         Password newPass = new Password(
                 getStringParameterSafely(request,
                         JSPStringConstants.CONFIRM_PASSWORD_PARAM));
-        if (!table.checkCorrectPassword(user, oldPass)) {
+        if (request.getParameter(JSPStringConstants.GO_BACK_FLAG) != null) {
+            goToFileWithUser(request, response, user,
+                    JSPStringConstants.MANAGER_JSP);
+        } else if (!table.checkCorrectPassword(user, oldPass)) {
             request.setAttribute(
                     JSPStringConstants.PASSWORD_INCORRECT_ERROR, 1);
             request.setAttribute(

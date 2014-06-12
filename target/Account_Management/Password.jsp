@@ -12,7 +12,7 @@
                     s="";%>
             New Password: <input type="password" name=<%=JSPStringConstants.CONFIRM_PASSWORD_PARAM%> value=<%=s%> ><br>
             <button type="submit" name="changedPass" value="true">Change Password</button>
-            <button type="submit" name="Back" value="true">Back</button>
+            <button type="submit" name=<%=JSPStringConstants.GO_BACK_FLAG%> value="true">Back</button>
         </form>
     </body>
 </html>

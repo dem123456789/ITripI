@@ -42,7 +42,10 @@ public class ChangeUserName extends SharedServletMethods {
         Username newUser = new Username(
                 getStringParameterSafely(request,
                         JSPStringConstants.NEW_USERNAME_PARAM));
-        if (!table.checkCorrectPassword(user, pass)) {
+        if (request.getParameter(JSPStringConstants.GO_BACK_FLAG) != null) {
+            goToFileWithUser(request, response, user,
+                    JSPStringConstants.MANAGER_JSP);
+        } else if (!table.checkCorrectPassword(user, pass)) {
             request.setAttribute(
                     JSPStringConstants.PASSWORD_INCORRECT_ERROR, 1);
             request.setAttribute(

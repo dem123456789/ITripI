@@ -9,7 +9,7 @@
             <input type="hidden" name=<%=JSPStringConstants.USERNAME_PARAM%> value=<%=s%> ></input>
             <button type="submit" name=<%=JSPStringConstants.CHANGE_USERNAME_FLAG%> value="true">Change Username</button>
             <button type="submit" name=<%=JSPStringConstants.CHANGE_PASSWORD_FLAG%> value="true">Change Password</button>
-            <button type="submit" name="GoBack" value="true">Back</button>
+            <button type="submit" name=<%=JSPStringConstants.GO_BACK_FLAG%> value="true">Back</button>
         </form>
     </body>
 <html>

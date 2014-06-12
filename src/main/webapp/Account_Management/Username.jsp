@@ -17,7 +17,7 @@
                     s="";%>
             New User: <input type="text" name=<%=JSPStringConstants.NEW_USERNAME_PARAM%> value=<%=s%> ><br>
             <p><button type="submit" name="ChangedUser" value="true">Change Username</button></p>
-            <button type="submit" name="Back" value="true">Back</button>
+            <button type="submit" name=<%=JSPStringConstants.GO_BACK_FLAG%> value="true">Back</button>
         </form>
     </body>
 </html>

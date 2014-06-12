@@ -14,6 +14,7 @@ public class JSPStringConstants {
     public static final String MANAGE_ACCOUNT_FLAG = "ManageAccount";
     public static final String CHANGE_USERNAME_FLAG = "ChangeUsername";
     public static final String CHANGE_PASSWORD_FLAG = "ChangePassword";
+    public static final String GO_BACK_FLAG = "GoBack";
 
     //error flags
     public static final String USERNAME_NOT_FOUND_ERROR = "UsernameNotFound";
