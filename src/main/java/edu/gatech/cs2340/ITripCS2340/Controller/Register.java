@@ -59,7 +59,8 @@ public class Register  extends SharedServletMethods {
      * @param response HTTP response
      * @param user The username that was entered
      * @param pass The password that was entered
-     * @param conformationPass The conformation password that was entered should equal password
+     * @param conformationPass The conformation password
+     * that was entered should equal password
      * @throws javax.servlet.ServletException
      * @throws java.io.IOException
      */
