@@ -51,8 +51,8 @@ public class Hash {
         } catch (IOException e) {
             return;
         }
-        if (password != null && username != null &&
-                !containsUsername(username)) {
+        if (password != null && username != null
+                && !containsUsername(username)) {
             data.put(username, password);
             outputFile();
         }
@@ -65,14 +65,15 @@ public class Hash {
      * @param username  the Key in hashtable
      * @param password the Value in hashtable
      */
-    public void removeAccount(Username username, Password password) throws IOException {
+    public void removeAccount(Username username, Password password)
+            throws IOException {
         try {
             inputFile();
         } catch (IOException e) {
             return;
         }
         if (username != null && containsUsername(username)) {
-            if (checkCorrectPassword(username, password)){
+            if (checkCorrectPassword(username, password)) {
                 data.remove(username);
                 outputFile();
             }
@@ -143,8 +144,8 @@ public class Hash {
      */
     @SuppressWarnings("unchecked")
     private void inputFile() throws IOException {
-        FileInputStream fileIn = new FileInputStream(relativePath +
-                "/tmp.ser");
+        FileInputStream fileIn = new FileInputStream(relativePath
+                + "/tmp.ser");
         ObjectInputStream input = new ObjectInputStream(fileIn);
         try {
             data = (Hashtable) input.readObject();

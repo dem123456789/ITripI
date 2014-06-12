@@ -46,7 +46,11 @@ public class Username implements java.io.Serializable {
      */
     public int hashCode() {
         int result = 17;
-        result = 17 * result + (username != null ? username.hashCode() : 0);
+        if (username != null) {
+            result = 17 * result + username.hashCode();
+        } else {
+            result = 17 * result;
+        }
         return result;
     }
 
@@ -67,3 +71,4 @@ public class Username implements java.io.Serializable {
         return username != null && username.equals(test.username);
     }
 }
+

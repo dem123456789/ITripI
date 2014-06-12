@@ -49,7 +49,11 @@ public class Password implements java.io.Serializable {
      */
     public int hashCode() {
         int result = 31;
-        result = 31 * result + (password != null ? password.hashCode() : 0);
+        if (password != null) {
+            result = 31 * result + password.hashCode();
+        } else {
+            result = 31 * result;
+        }
         return result;
     }
 
@@ -70,3 +74,4 @@ public class Password implements java.io.Serializable {
         return password != null && password.equals(test.password);
     }
 }
+
