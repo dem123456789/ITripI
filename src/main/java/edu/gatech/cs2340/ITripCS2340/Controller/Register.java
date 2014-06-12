@@ -24,7 +24,13 @@ public class Register  extends SharedServletMethods {
             throws ServletException, IOException {
         doGet(request, response);
     }
-
+    /**
+     * Manages Register.jsp
+     * @param request  HTTP request
+     * @param response HTTP response
+     * @throws javax.servlet.ServletException
+     * @throws java.io.IOException
+     */
     @Override
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response)
@@ -47,7 +53,16 @@ public class Register  extends SharedServletMethods {
             register(request, response, user, pass, conformationPass);
         }
     }
-
+    /**
+     * Error checks User input and registers them in if it is correct
+     * @param request  HTTP request
+     * @param response HTTP response
+     * @param user The username that was entered
+     * @param pass The password that was entered
+     * @param conformationPass The conformation password that was entered should equal password
+     * @throws javax.servlet.ServletException
+     * @throws java.io.IOException
+     */
     private void register(HttpServletRequest request,
                           HttpServletResponse response,
                           Username user, Password pass,

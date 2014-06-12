@@ -24,7 +24,13 @@ public class AccountManagement extends SharedServletMethods {
             throws ServletException, IOException {
         doGet(request, response);
     }
-
+    /**
+     * Manages Manager.jsp
+     * @param request  HTTP request
+     * @param response HTTP response
+     * @throws javax.servlet.ServletException
+     * @throws java.io.IOException
+     */
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

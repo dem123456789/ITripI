@@ -13,15 +13,33 @@ import java.io.IOException;
  * Created by Jonathan on 6/11/2014.
  */
 public abstract class SharedServletMethods extends HttpServlet {
-
+    /**
+     * Only calls doGet
+     * @param request  HTTP request
+     * @param response HTTP response
+     * @throws javax.servlet.ServletException
+     * @throws java.io.IOException
+     */
     public abstract void doPost(HttpServletRequest request,
                                 HttpServletResponse response)
             throws ServletException, IOException;
-
+    /**
+     *
+     * @param request  HTTP request
+     * @param response HTTP response
+     * @throws javax.servlet.ServletException
+     * @throws java.io.IOException
+     */
     public abstract void doGet(HttpServletRequest request,
                                HttpServletResponse response)
             throws ServletException, IOException;
-
+    /**
+     * Checks for null then returns the string
+     * @param request  HTTP request
+     * @param paramName Parameter you want
+     * @throws javax.servlet.ServletException
+     * @throws java.io.IOException
+     */
     protected String getStringParameterSafely(
             HttpServletRequest request, String paramName) {
         if (request.getParameter(paramName) == null) {
@@ -29,7 +47,13 @@ public abstract class SharedServletMethods extends HttpServlet {
         }
         return request.getParameter(paramName);
     }
-
+    /**
+     * Redirects to the given file and passes the given username to it
+     * @param request  HTTP request
+     * @param response HTTP response
+     * @throws javax.servlet.ServletException
+     * @throws java.io.IOException
+     */
     protected void goToFileWithUser(HttpServletRequest request,
                                     HttpServletResponse response,
                                     Username user, String fileName)

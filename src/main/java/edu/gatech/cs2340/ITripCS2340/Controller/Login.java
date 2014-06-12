@@ -24,7 +24,13 @@ public class Login extends SharedServletMethods {
             throws ServletException, IOException {
         doGet(request, response);
     }
-
+    /**
+     * Manages Login.jsp
+     * @param request  HTTP request
+     * @param response HTTP response
+     * @throws javax.servlet.ServletException
+     * @throws java.io.IOException
+     */
     @Override
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response)
@@ -44,7 +50,15 @@ public class Login extends SharedServletMethods {
             logIn(request, response, user, pass);
         }
     }
-
+    /**
+     * Error checks User input and Logs them in if it is correct
+     * @param request  HTTP request
+     * @param response HTTP response
+     * @param user The username that was entered
+     * @param pass The password that was entered
+     * @throws javax.servlet.ServletException
+     * @throws java.io.IOException
+     */
     private void logIn(HttpServletRequest request,
                        HttpServletResponse response,
                        Username user, Password pass)
