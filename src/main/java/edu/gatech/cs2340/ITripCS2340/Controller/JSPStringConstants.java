@@ -1,8 +1,10 @@
 package edu.gatech.cs2340.ITripCS2340.Controller;
 
 /**
- * Created by Jonathan on 6/11/2014.
  * Holds String constants for use in servlet-jsp interactions
+ * Created by Jonathan on 6/11/2014.
+ * @author Jonathan
+ * @version 1.0
  */
 public class JSPStringConstants {
     //vars

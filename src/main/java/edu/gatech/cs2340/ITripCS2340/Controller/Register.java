@@ -11,7 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
+ * Handles Register.jsp
  * Created by Jonathan on 6/11/2014.
+ * @author Jonathan
+ * @version 1.0
  */
 
 @WebServlet("/Register/")
@@ -25,7 +28,7 @@ public class Register  extends SharedServletMethods {
         doGet(request, response);
     }
     /**
-     * Manages Register.jsp
+     * Handles Register.jsp
      * @param request  HTTP request
      * @param response HTTP response
      * @throws javax.servlet.ServletException
@@ -49,10 +52,15 @@ public class Register  extends SharedServletMethods {
         Password conformationPass = new Password(
                 getStringParameterSafely(request,
                         JSPStringConstants.CONFIRM_PASSWORD_PARAM));
-        synchronized (this) {
-            register(request, response, user, pass, conformationPass);
+        if (request.getParameter(JSPStringConstants.GO_BACK_FLAG) != null) {
+            goToFileWithUser(request, response, null, JSPStringConstants.LOGIN_JSP);
+        } else {
+            synchronized (this) {
+                register(request, response, user, pass, conformationPass);
+            }
         }
     }
+
     /**
      * Error checks User input and registers them in if it is correct
      * @param request  HTTP request

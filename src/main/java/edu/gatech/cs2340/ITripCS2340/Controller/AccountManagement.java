@@ -10,7 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
+ * Handles Manager.jsp
  * Created by Jonathan on 6/11/2014.
+ * @author Jonathan
+ * @version 1.0
  */
 
 @WebServlet("/AccountManagement/")
@@ -25,7 +28,7 @@ public class AccountManagement extends SharedServletMethods {
         doGet(request, response);
     }
     /**
-     * Manages Manager.jsp
+     * Handles Manager.jsp
      * @param request  HTTP request
      * @param response HTTP response
      * @throws javax.servlet.ServletException

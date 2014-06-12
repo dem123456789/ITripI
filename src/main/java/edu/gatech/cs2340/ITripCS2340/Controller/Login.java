@@ -11,7 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
+ * Handles Login.jsp
  * Created by Jonathan on 6/11/2014.
+ * @author Jonathan
+ * @version 1.0
  */
 
 @WebServlet("/Login/")
@@ -25,7 +28,7 @@ public class Login extends SharedServletMethods {
         doGet(request, response);
     }
     /**
-     * Manages Login.jsp
+     * Handles Login.jsp
      * @param request  HTTP request
      * @param response HTTP response
      * @throws javax.servlet.ServletException

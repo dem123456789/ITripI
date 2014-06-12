@@ -10,11 +10,16 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
+ * Holds methods common to all the servlets in this project
  * Created by Jonathan on 6/11/2014.
+ * @author Jonathan
+ * @version 1.0
  */
+
 public abstract class SharedServletMethods extends HttpServlet {
     /**
      * Only calls doGet
+     *
      * @param request  HTTP request
      * @param response HTTP response
      * @throws javax.servlet.ServletException
@@ -23,8 +28,8 @@ public abstract class SharedServletMethods extends HttpServlet {
     public abstract void doPost(HttpServletRequest request,
                                 HttpServletResponse response)
             throws ServletException, IOException;
+
     /**
-     *
      * @param request  HTTP request
      * @param response HTTP response
      * @throws javax.servlet.ServletException
@@ -33,9 +38,11 @@ public abstract class SharedServletMethods extends HttpServlet {
     public abstract void doGet(HttpServletRequest request,
                                HttpServletResponse response)
             throws ServletException, IOException;
+
     /**
      * Checks for null then returns the string
-     * @param request  HTTP request
+     *
+     * @param request   HTTP request
      * @param paramName Parameter you want
      * @throws javax.servlet.ServletException
      * @throws java.io.IOException
@@ -47,8 +54,10 @@ public abstract class SharedServletMethods extends HttpServlet {
         }
         return request.getParameter(paramName);
     }
+
     /**
      * Redirects to the given file and passes the given username to it
+     *
      * @param request  HTTP request
      * @param response HTTP response
      * @throws javax.servlet.ServletException
@@ -58,8 +67,10 @@ public abstract class SharedServletMethods extends HttpServlet {
                                     HttpServletResponse response,
                                     Username user, String fileName)
             throws ServletException, IOException {
-        request.setAttribute(JSPStringConstants.USERNAME_PARAM,
-                user.getUsername());
+        if (user != null) {
+            request.setAttribute(JSPStringConstants.USERNAME_PARAM,
+                    user.getUsername());
+        }
         RequestDispatcher dispatcher =
                 getServletContext().getRequestDispatcher("/" + fileName);
         dispatcher.forward(request, response);
