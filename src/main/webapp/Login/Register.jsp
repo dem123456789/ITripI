@@ -57,8 +57,7 @@
                     <tr align="left">
                         <td >
                                 <input type="submit" value="Register" name="registerButton" id="registerButton" class="clickButton"/>
-                                <input type="submit" value="Cancel" onclick="location.href='/ITripCS2340/<%=JSPStringConstants.LOGIN_JSP%>';"
-                                name=<%=JSPStringConstants.GO_BACK_FLAG%> id=<%=JSPStringConstants.GO_BACK_FLAG%> class="clickButton"/>
+                                <input type="submit" value="Cancel" name=<%=JSPStringConstants.GO_BACK_FLAG%> id=<%=JSPStringConstants.GO_BACK_FLAG%> class="clickButton"/>
                         </td>
                     </tr>
                 </table>
