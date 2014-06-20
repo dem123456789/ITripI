@@ -30,6 +30,7 @@
   <target name="clean"
    description="Delete old build and dist directories">
     <delete dir="${build.home}"/>
+      <delete dir="${catalina.home}/webapps/${app.name}"/>
   </target>
 
   <target name="compile" description="Compile Java sources">
