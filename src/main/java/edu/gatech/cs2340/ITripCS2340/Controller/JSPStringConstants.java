@@ -35,4 +35,7 @@ public class JSPStringConstants {
     public static final String PASSWORD_JSP = "Account_Management/Password.jsp";
     public static final String LOGINREGISTER_CSS = "Style_Sheets/LoginRegister.css";
     public static final String MAP_CSS = "Style_Sheets/Map.css";
+
+    //Google API
+    public static final String GOOGLE_APP_KEY = "AIzaSyCUwf97HWBebDwzBoqYvDZ1qirdFcl_yJY";
 }

@@ -5,7 +5,7 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <link href="/ITripCS2340/<%=JSPStringConstants.MAP_CSS%>" rel="stylesheet" type="text/css">
     <script type="text/javascript"
-            src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCUwf97HWBebDwzBoqYvDZ1qirdFcl_yJY">
+            src="http://maps.googleapis.com/maps/api/js?key=<%=JSPStringConstants.GOOGLE_APP_KEY%>">
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
     <script type="text/javascript">
@@ -41,7 +41,7 @@
             centralLocationMarker.setPosition(place.geometry.location);
         }
         map.setCenter(place.geometry.location);
-        map.setZoom(17);
+        map.setZoom(12);
       }
       function geolocate() {
         if (navigator.geolocation) {
@@ -62,10 +62,9 @@
             <input id="CentralLocation" placeholder="Enter your address"
                  onFocus="geolocate()" type="text"></input>
         </div>
-    </div>
 
-    <div id="PreferencesContainer">
-
+              <div id="PreferencesContainer">
+              </div>
     </div>
 </body>
 </html>

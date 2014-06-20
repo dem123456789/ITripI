@@ -9,9 +9,9 @@
         <h1>
             You are logged in as <%= user %>.
         </h1>
-        <script>
+        <!--<script>
             document.write("This is javascript and this is the variable \"user\": "+"<%=user%>");
-        </script>
+        </script>-->
         <form action="/ITripCS2340/AccountManagement/">
             <input type="hidden" name=<%=JSPStringConstants.USERNAME_PARAM%> value=<%=user%> >
             <button type="submit" name=<%=JSPStringConstants.MANAGE_ACCOUNT_FLAG%> value="true">Manage Account</button>
