@@ -34,4 +34,12 @@ public class JSPStringConstants {
     public static final String USERNAME_JSP = "Account_Management/Username.jsp";
     public static final String PASSWORD_JSP = "Account_Management/Password.jsp";
     public static final String STYLE_CSS = "Style_Sheets/style.css";
+    
+    //API keys
+    public static final String GOOGLE_API_KEY= 
+            "AIzaSyBU9pnplpYBdzrHI1RKgME1F-6VYcGPyzs";
+    public static final String YELP_API_KEY="2J2QEjmKSX1rvU45EwhqLQ";
+    public static final String YELP_API_SECRET="Vdf2gi6hydJsjV3PNuATETJWXvo";
+    public static final String YELP_TOKEN="ez_Vs7hSgVhYXvoK7izJa9asFAORFNZC";
+    public static final String YELP_TOKEN_SECRET="_5SGOs6bTXPSj0JDQHLgVyl1HUM";
 }

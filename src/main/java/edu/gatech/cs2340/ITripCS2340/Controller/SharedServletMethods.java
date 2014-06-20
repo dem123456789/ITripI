@@ -1,13 +1,17 @@
 package edu.gatech.cs2340.ITripCS2340.Controller;
 
 import edu.gatech.cs2340.ITripCS2340.Model.Username;
-
+import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import org.scribe.builder.ServiceBuilder;
+import org.scribe.model.OAuthRequest;
+import org.scribe.model.Response;
+import org.scribe.model.Token;
+import org.scribe.oauth.OAuthService;
 
 /**
  * Holds methods common to all the servlets in this project
@@ -74,5 +78,19 @@ public abstract class SharedServletMethods extends HttpServlet {
         RequestDispatcher dispatcher =
                 getServletContext().getRequestDispatcher("/" + fileName);
         dispatcher.forward(request, response);
+    }
+    
+    protected String QueryYelp(OAuthRequest request)
+    {
+        OAuthService service =
+        new ServiceBuilder().provider(YelpOAuth.class)
+                .apiKey(JSPStringConstants.YELP_API_KEY)
+                .apiSecret(JSPStringConstants.YELP_API_SECRET)
+                .build();
+        Token accessToken = new Token(JSPStringConstants.YELP_TOKEN, 
+            JSPStringConstants.YELP_TOKEN_SECRET);
+        service.signRequest(accessToken, request);
+        Response response = request.send();
+        return response.getBody();
     }
 }
