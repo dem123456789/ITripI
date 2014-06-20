@@ -33,7 +33,8 @@ public class JSPStringConstants {
     public static final String MANAGER_JSP = "Account_Management/Manager.jsp";
     public static final String USERNAME_JSP = "Account_Management/Username.jsp";
     public static final String PASSWORD_JSP = "Account_Management/Password.jsp";
-    public static final String STYLE_CSS = "Style_Sheets/style.css";
+    public static final String LOGINREGISTER_CSS = "Style_Sheets/LoginRegister.css";
+    public static final String MAP_CSS = "Style_Sheets/Map.css";
     
     //API keys
     public static final String GOOGLE_API_KEY= 

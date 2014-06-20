@@ -19,6 +19,6 @@
             <button type="submit" name=<%=JSPStringConstants.MANAGE_ACCOUNT_FLAG%> value="true">Manage Account</button>
         </form>
         <a href="/ITripCS2340">Log out</a>
-        <a href="/ITripCS2340/Map/Initialize.html">Map</a>
+        <a href="/ITripCS2340/Map/Map.jsp">Map</a>
     </body>
 </html>
