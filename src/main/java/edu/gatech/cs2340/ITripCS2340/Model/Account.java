@@ -1,3 +1,4 @@
+package edu.gatech.cs2340.ITripCS2340.Model;
 public class Account {
 	private static final int FNV_32_INIT = 0x811c9dc5;
 	private static final int FNV_32_PRIME = 0x01000193;
@@ -9,11 +10,11 @@ public class Account {
 		this.password = password;
 	}
 
-	private static int fnvHash(String unhashedString) {
+	private static int fnvHash(String unHashedString) {
 		int rv = FNV_32_INIT;
-		final int len = unhashedString.length();
+		final int len = unHashedString.length();
 		for (int i = 0; i < len; i++) {
-			rv ^= unhashedString.charAt(i);
+			rv ^= unHashedString.charAt(i);
 			rv *= FNV_32_PRIME;
 		}
 		return rv;
