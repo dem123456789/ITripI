@@ -30,7 +30,12 @@
   <target name="clean"
    description="Delete old build and dist directories">
     <delete dir="${build.home}"/>
-      <delete dir="${catalina.home}/webapps/${app.name}"/>
+    <delete dir="${catalina.home}/webapps/${app.name}"/>
+	<delete>
+      <fileset dir="${catalina.home}/lib">
+        <present present="both" targetdir="${basedir}/lib"/>
+      </fileset>
+    </delete>
   </target>
 
   <target name="compile" description="Compile Java sources">
@@ -81,10 +86,12 @@
 
   <target name="deploy" depends="prepare">
     <mkdir dir="${catalina.home}/webapps/${app.name}"/>
-    
     <copy  todir="${catalina.home}/webapps/${app.name}">
       <fileset dir="${build.home}"/>
     </copy>    
+    <copy todir="${catalina.home}/lib" overwrite="true">
+      <fileset dir="${basedir}/lib"/>
+    </copy>
   </target>
 
 </project>
