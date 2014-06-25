@@ -43,4 +43,6 @@ public class JSPStringConstants {
     public static final String YELP_API_SECRET="Vdf2gi6hydJsjV3PNuATETJWXvo";
     public static final String YELP_TOKEN="ez_Vs7hSgVhYXvoK7izJa9asFAORFNZC";
     public static final String YELP_TOKEN_SECRET="_5SGOs6bTXPSj0JDQHLgVyl1HUM";
+
+
 }
