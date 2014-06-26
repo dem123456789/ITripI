@@ -35,6 +35,7 @@
 
                     geocoder = new google.maps.Geocoder();
                     var businessName = place.name;
+                    (function(businessName) {
                     geocoder.geocode(
                     { 'address': place.location.address[0]+place.location.city+place.location.country_code},
                         function(results, status) {
@@ -69,6 +70,7 @@
                             }
                           }
                     );
+                    })(businessName);
                    }
 
 

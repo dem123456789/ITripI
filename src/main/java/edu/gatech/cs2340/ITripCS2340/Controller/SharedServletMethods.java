@@ -54,7 +54,7 @@ public abstract class SharedServletMethods extends HttpServlet {
     protected String getStringParameterSafely(
             HttpServletRequest request, String paramName) {
         if (!isParamThere(request,paramName)) {
-            return "This+parameter+does+not+exist";
+            return paramName+"+does+not+exist";
         }
         return request.getParameter(paramName);
     }
