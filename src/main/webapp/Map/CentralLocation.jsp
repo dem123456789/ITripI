@@ -154,18 +154,18 @@
     <div id="Frame">
             <div id="map_canvas"></div>
 
+                <form action="/ITripCS2340/Preferences/" method="POST">
                 <div id="PreferenceArea">
                     <input id=<%=JSPStringConstants.CENTRAL_LOCATION%>
                         name=<%=JSPStringConstants.CENTRAL_LOCATION%> placeholder="Enter your address"
-                         onFocus="geolocate()" type="text"></input>
+                         onFocus="geolocate()" type="text"/>
                     <input id=<%=JSPStringConstants.INTEREST_PLACE%>
                         name=<%=JSPStringConstants.INTEREST_PLACE%> placeholder="Point of interest"
-                                  type="text"></input>
+                                  type="text"/>
                     <input id=<%=JSPStringConstants.DISTANCE%>
                         name=<%=JSPStringConstants.DISTANCE%> placeholder="Enter search radius(miles)"
-                                 onFocus="geolocate()" type="text"></input>
+                                 onFocus="geolocate()" type="text"/>
                 </div>
-                <form action="/ITripCS2340/Preferences/" method="POST">
                     <input type="submit" value="Go!" name="Preferences" id="Preferences" class="clickButton"/>
                 </form>
 
