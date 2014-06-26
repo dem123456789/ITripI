@@ -52,4 +52,12 @@ public class JSPStringConstants {
     public static final String YELP_TOKEN_SECRET="_5SGOs6bTXPSj0JDQHLgVyl1HUM";
 
 
+    //Unit Conversions
+    public static final double MetersPerMile = 1609.34;
+
+    public static double milesToMeters(double miles){
+        return miles * MetersPerMile;
+    }
+
+
 }

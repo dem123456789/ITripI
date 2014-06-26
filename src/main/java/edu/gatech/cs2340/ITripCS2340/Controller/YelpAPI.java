@@ -64,6 +64,7 @@ public class YelpAPI {
         request.addQuerystringParameter("location", location);
         request.addQuerystringParameter("limit", String.valueOf(SEARCH_LIMIT));
         request.addQuerystringParameter("radius_filter", radius);
+        request.addQuerystringParameter("sort", "2");
         return sendRequestAndGetResponse(request);
     }
 

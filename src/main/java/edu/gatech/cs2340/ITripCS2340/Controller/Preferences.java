@@ -54,13 +54,17 @@ public class Preferences extends SharedServletMethods {
         String interestPlace = getStringParameterSafely(request,
                 JSPStringConstants.INTEREST_PLACE);
 
-        String distance = getStringParameterSafely(request,
+        String distanceInMiles = getStringParameterSafely(request,
                 JSPStringConstants.DISTANCE);
+
+        String distanceInMeters = String.valueOf(
+                JSPStringConstants.milesToMeters(Double.parseDouble(distanceInMiles)));
 
         YelpAPI yelp = new YelpAPI(JSPStringConstants.YELP_API_KEY, JSPStringConstants.YELP_API_SECRET,
                 JSPStringConstants.YELP_TOKEN, JSPStringConstants.YELP_TOKEN_SECRET);
 
-        JSONArray businesses = yelp.queryAPI(interestPlace,location,distance);
+        JSONArray businesses = yelp.queryAPI(interestPlace,location,distanceInMeters);
+        System.out.println(distanceInMeters);
         request.setAttribute(JSPStringConstants.BUSINESSES, businesses.toString());
 
         goToFileWithUser(request, response, user,
