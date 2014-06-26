@@ -153,7 +153,6 @@
 <body onload="initialize()">
     <div id="Frame">
             <div id="map_canvas"></div>
-
                 <form action="/ITripCS2340/Preferences/" method="POST">
                 <div id="PreferenceArea">
                     <input id=<%=JSPStringConstants.CENTRAL_LOCATION%>
