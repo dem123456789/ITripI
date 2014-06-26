@@ -12,6 +12,12 @@ public class JSPStringConstants {
     public static final String NEW_USERNAME_PARAM = "NewUsername";
     public static final String PASSWORD_PARAM = "Password";
     public static final String CONFIRM_PASSWORD_PARAM = "ConformationPass";
+    public static final String CENTRAL_LOCATION = "CentralLocation";
+    public static final String INTEREST_PLACE = "InterestPlace";
+    public static final String DISTANCE = "Distance";
+    public static final String LONGTITUDE = "Longtitude";
+    public static final String LATITUDE = "Latitude";
+    public static final String BUSINESSES = "Businesses";
 
     //flags
     public static final String MANAGE_ACCOUNT_FLAG = "ManageAccount";
@@ -35,6 +41,7 @@ public class JSPStringConstants {
     public static final String PASSWORD_JSP = "Account_Management/Password.jsp";
     public static final String LOGINREGISTER_CSS = "Style_Sheets/LoginRegister.css";
     public static final String MAP_CSS = "Style_Sheets/Map.css";
+    public static final String MAP_JSP = "Map/Map.jsp";
     
     //API keys
     public static final String GOOGLE_API_KEY= 

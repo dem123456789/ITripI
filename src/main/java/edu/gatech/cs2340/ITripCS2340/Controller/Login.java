@@ -13,15 +13,15 @@ import java.io.IOException;
 /**
  * Handles Login.jsp
  * Created by Jonathan on 6/11/2014.
- * @author Jonathan
- * @version 1.0
- */
+    * @author Jonathan
+    * @version 1.0
+            */
 
-@WebServlet("/Login/")
-public class Login extends SharedServletMethods {
-    private Hash table;
+    @WebServlet("/Login/")
+    public class Login extends SharedServletMethods {
+        private Hash table;
 
-    @Override
+        @Override
     public void doPost(HttpServletRequest request,
                        HttpServletResponse response)
             throws ServletException, IOException {

@@ -53,10 +53,21 @@ public abstract class SharedServletMethods extends HttpServlet {
      */
     protected String getStringParameterSafely(
             HttpServletRequest request, String paramName) {
-        if (request.getParameter(paramName) == null) {
-            return "";
+        if (!isParamThere(request,paramName)) {
+            return "This+parameter+does+not+exist";
         }
         return request.getParameter(paramName);
+    }
+
+    /**
+     * checks if the parameter is there
+     *
+     * @param request HTTP request
+     * @param paramName the parameter in question
+     */
+    protected boolean isParamThere(HttpServletRequest request,
+                                   String paramName){
+        return request.getParameter(paramName)!=null;
     }
 
     /**
@@ -78,19 +89,5 @@ public abstract class SharedServletMethods extends HttpServlet {
         RequestDispatcher dispatcher =
                 getServletContext().getRequestDispatcher("/" + fileName);
         dispatcher.forward(request, response);
-    }
-    
-    protected String QueryYelp(OAuthRequest request)
-    {
-        OAuthService service =
-        new ServiceBuilder().provider(YelpOAuth.class)
-                .apiKey(JSPStringConstants.YELP_API_KEY)
-                .apiSecret(JSPStringConstants.YELP_API_SECRET)
-                .build();
-        Token accessToken = new Token(JSPStringConstants.YELP_TOKEN, 
-            JSPStringConstants.YELP_TOKEN_SECRET);
-        service.signRequest(accessToken, request);
-        Response response = request.send();
-        return response.getBody();
     }
 }
