@@ -84,6 +84,8 @@
                                     });
                               });
 
+
+
                               //pointOfInterets.push(marker);
                             } else {
                               alert('Geocode was not successful for the following reason: ' + status);
@@ -92,10 +94,7 @@
                     );
                     })(description);
                    }
-
-
              }
-
 
              function geolocate() {
                if (navigator.geolocation) {
@@ -107,22 +106,7 @@
                  });
                }
              }
-             function calcRoute() {
-               var selectedMode = document.getElementById('mode').value;
-               var request = {
-                   origin: haight,
-                   destination: oceanBeach,
-                   // Note that Javascript allows us to access the constant
-                   // using square brackets and a string value as its
-                   // "property."
-                   travelMode: google.maps.TravelMode[selectedMode]
-               };
-               directionsService.route(request, function(response, status) {
-                 if (status == google.maps.DirectionsStatus.OK) {
-                   directionsDisplay.setDirections(response);
-                 }
-               });
-             }
+
 
            </script>
        </head>
@@ -132,7 +116,7 @@
                <div id="PreferenceArea">
                    <div id="TravelModePanel">
                        <div>Mode of Travel: </div>
-                       <select id="mode" onchange="calcRoute();">
+                       <select id="mode">
                          <option value="DRIVING">Driving</option>
                          <option value="WALKING">Walking</option>
                          <option value="BICYCLING">Bicycling</option>
