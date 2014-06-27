@@ -18,10 +18,7 @@ public class JSPStringConstants {
     public static final String LONGTITUDE = "Longtitude";
     public static final String LATITUDE = "Latitude";
     public static final String BUSINESSES = "Businesses";
-    public static final String TIME="Time";
-    public static final String FOOD_TYPE="FoodType";
     public static final String RATING="Rating";
-    public static final String PRICE="Price";
 
     //flags
     public static final String MANAGE_ACCOUNT_FLAG = "ManageAccount";

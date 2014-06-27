@@ -48,7 +48,7 @@ public class Preferences extends SharedServletMethods {
         } catch (IOException e) {
             System.out.println("Path Error");
         }
-
+        
         Username user = new Username(
                 getStringParameterSafely(request,
                         JSPStringConstants.USERNAME_PARAM));
@@ -69,12 +69,11 @@ public class Preferences extends SharedServletMethods {
         YelpAPI yelp = new YelpAPI(JSPStringConstants.YELP_API_KEY, JSPStringConstants.YELP_API_SECRET,
                 JSPStringConstants.YELP_TOKEN, JSPStringConstants.YELP_TOKEN_SECRET);
 
-        JSONArray businesses = yelp.queryAPI(interestPlace,location,distanceInMeters);
+        JSONArray businesses = getDetails(null);
         System.out.println(distanceInMeters);
         JSONArray temp=new JSONArray();
         for (Object businessObj : businesses) {
             JSONObject business = (JSONObject) businessObj;
-            System.out.println((Double)business.get("rating"));
             if(rating<=(Double)business.get("rating"))
                 temp.add(business);
         }
@@ -97,9 +96,9 @@ public class Preferences extends SharedServletMethods {
         for(Object obj: places)
         {
             JSONObject place =(JSONObject)obj;
-            request =new OAuthRequest(Verb.GET, 
-                    "https://maps.googleapis.com/maps/api/place/details/json?");
-            request.addBodyParameter("key", JSPStringConstants.GOOGLE_API_KEY);
+            request = new OAuthRequest(Verb.GET,
+                "https://maps.googleapis.com/maps/api/place/details/js?key="+
+                        JSPStringConstants.GOOGLE_API_KEY);
             request.addBodyParameter("placeid" , 
                     (String)place.get("placeid"));
             Response response = request.send();

@@ -3,12 +3,19 @@ package edu.gatech.cs2340.ITripCS2340.Controller;
 import edu.gatech.cs2340.ITripCS2340.Model.Hash;
 import edu.gatech.cs2340.ITripCS2340.Model.Password;
 import edu.gatech.cs2340.ITripCS2340.Model.Username;
-
+import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import org.scribe.builder.ServiceBuilder;
+import org.scribe.builder.api.GoogleApi;
+import org.scribe.model.OAuthRequest;
+import org.scribe.model.Response;
+import org.scribe.model.Token;
+import org.scribe.model.Verb;
+import org.scribe.model.Verifier;
+import org.scribe.oauth.OAuthService;
 
 /**
  * Handles Login.jsp
