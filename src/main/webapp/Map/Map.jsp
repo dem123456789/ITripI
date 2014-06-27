@@ -25,6 +25,7 @@
                  mapTypeId: google.maps.MapTypeId.ROADMAP
                 <!--ROADMAP SATELLITE HYBRID TERRAIN-->
                };
+               var infowindow = new google.maps.InfoWindow();
                map = new google.maps.Map(document.getElementById("map_canvas"),
                    mapOptions);
                directionsDisplay.setMap(map);
@@ -42,9 +43,14 @@
                                   title: centralLocation[0].location,
                                   icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
                               });
+                            google.maps.event.addListener(marker, 'click', function() {
+                                     infowindow.setContent(centralLocation[0].location);
+                                     infowindow.open(map,marker);
+                                   });
                               centralLocationLngLat = results[0].geometry.location;
                             }
                         });
+
                     })(centralLocation);
 
 
@@ -55,7 +61,7 @@
                     var businessName = place.name;
                     var description = place.name + "\n" + place.location.display_address + "\n" +
                         place.phone + "\n" + place.url + "\n" + place.snippet_text;
-                    (function(description) {
+                    (function(businessName) {
                     geocoder.geocode(
                     { 'address': place.location.address[0]+place.location.city+place.location.country_code},
                         function(results, status) {
@@ -63,9 +69,11 @@
                               var marker = new google.maps.Marker({
                                   map: map,
                                   position: results[0].geometry.location,
-                                  title: description
+                                  title: businessName
                               });
                               google.maps.event.addListener(marker, 'click', function(place) {
+                                   infowindow.setContent(description);
+                                   infowindow.open(map,marker);
                                   var start = centralLocationLngLat;
                                   var end = place.latLng;
                                   var selectedMode = document.getElementById('mode').value;
