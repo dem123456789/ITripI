@@ -11,7 +11,7 @@
     <script type="text/javascript">
     var placeSearch, autocompleteCentralLocation,map, directionsService,
         directionsDisplay,centralLocationMarker,pointOfInterets = [];
-
+        var infowindow = new google.maps.InfoWindow();
 
       function initialize() {
         directionsService = new google.maps.DirectionsService();
@@ -22,6 +22,7 @@
           mapTypeId: google.maps.MapTypeId.ROADMAP
          <!--ROADMAP SATELLITE HYBRID TERRAIN-->
         };
+
         map = new google.maps.Map(document.getElementById("map_canvas"),
             mapOptions);
         directionsDisplay.setMap(map);
@@ -104,6 +105,8 @@
                    directionsDisplay.setDirections(response);
                  }
                });
+                infowindow.setContent(place.name);
+                infowindow.open(map,marker);
          });
 
          pointOfInterets.push(marker);
@@ -131,6 +134,10 @@
                   map: map,
                   title: autocompleteCentralLocation.getPlace().short_name
               });
+              google.maps.event.addListener(centralLocationMarker, 'click', function() {
+                       infowindow.setContent(autocompleteCentralLocation.getPlace().short_name);
+                       infowindow.open(map,centralLocationMarker);
+                     });
         }
         else{
             centralLocationMarker.setPosition(place.geometry.location);
@@ -164,6 +171,15 @@
                     <input id=<%=JSPStringConstants.DISTANCE%>
                         name=<%=JSPStringConstants.DISTANCE%> placeholder="Enter search radius(miles)"
                                  onFocus="geolocate()" type="text"/>
+                    <div id="TravelModePanel">
+                        <div>Mode of Travel: </div>
+                        <select id="mode">
+                          <option value="DRIVING">Driving</option>
+                          <option value="WALKING">Walking</option>
+                          <option value="BICYCLING">Bicycling</option>
+                          <option value="TRANSIT">Transit</option>
+                        </select>
+                    </div>
                 </div>
                     <input type="submit" value="Go!" name="Preferences" id="Preferences" class="clickButton"/>
                 </form>

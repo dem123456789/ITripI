@@ -79,7 +79,8 @@ public class Preferences extends SharedServletMethods {
                 temp.add(business);
         }
         request.setAttribute(JSPStringConstants.BUSINESSES, temp.toString());
-
+        request.setAttribute(JSPStringConstants.BUSINESSES, businesses.toString());
+        request.setAttribute(JSPStringConstants.CENTRAL_LOCATION, "[{\"location\": \""+location+"\"}]");
         goToFileWithUser(request, response, user,
                 JSPStringConstants.MAP_JSP);
     }
