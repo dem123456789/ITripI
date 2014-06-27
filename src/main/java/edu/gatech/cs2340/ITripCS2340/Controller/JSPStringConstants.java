@@ -15,10 +15,12 @@ public class JSPStringConstants {
     public static final String CENTRAL_LOCATION = "CentralLocation";
     public static final String INTEREST_PLACE = "InterestPlace";
     public static final String DISTANCE = "Distance";
+    public static final String PlacesFoundInCentralLocation = "PlacesCentralLocation";
     public static final String LONGTITUDE = "Longtitude";
     public static final String LATITUDE = "Latitude";
     public static final String BUSINESSES = "Businesses";
-    public static final String TIME="Time";
+    public static final String STARTTIME="StartTime";
+    public static final String ENDTIME="EndTime";
     public static final String FOOD_TYPE="FoodType";
     public static final String RATING="Rating";
     public static final String PRICE="Price";

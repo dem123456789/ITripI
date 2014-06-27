@@ -25,7 +25,8 @@ public class Preferences extends SharedServletMethods {
     @Override
     public void doPost(HttpServletRequest request,
                        HttpServletResponse response)
-            throws ServletException, IOException {doGet(request, response);
+            throws ServletException, IOException {
+        doGet(request, response);
     }
     /**
      * Handles Login.jsp
@@ -62,6 +63,18 @@ public class Preferences extends SharedServletMethods {
 
         YelpAPI yelp = new YelpAPI(JSPStringConstants.YELP_API_KEY, JSPStringConstants.YELP_API_SECRET,
                 JSPStringConstants.YELP_TOKEN, JSPStringConstants.YELP_TOKEN_SECRET);
+
+        String places = getStringParameterSafely(request,
+                JSPStringConstants.PlacesFoundInCentralLocation);
+
+        System.out.println(places);
+
+        String price = getStringParameterSafely(request,
+                JSPStringConstants.PRICE);
+
+        String rating = getStringParameterSafely(request,
+                JSPStringConstants.RATING);
+
 
         JSONArray businesses = yelp.queryAPI(interestPlace,location,distanceInMeters);
         System.out.println(distanceInMeters);

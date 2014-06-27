@@ -8,6 +8,7 @@
             src="http://maps.googleapis.com/maps/api/js?key=<%=JSPStringConstants.GOOGLE_API_KEY%>">
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript">
     var placeSearch, autocompleteCentralLocation,map, directionsService,
         directionsDisplay,centralLocationMarker,pointOfInterets = [];
@@ -64,6 +65,8 @@
        });
        searchBox.setBounds(searchArea.getBounds());
        var places = searchBox.getPlaces();
+
+       $('#PlacesCentralLocation').val(JSON.stringify(places));
 
        for (var i = 0, marker; marker = pointOfInterets[i]; i++) {
          marker.setMap(null);
@@ -171,15 +174,88 @@
                     <input id=<%=JSPStringConstants.DISTANCE%>
                         name=<%=JSPStringConstants.DISTANCE%> placeholder="Enter search radius(miles)"
                                  onFocus="geolocate()" type="text"/>
-                    <div id="TravelModePanel">
-                        <div>Mode of Travel: </div>
-                        <select id="mode">
-                          <option value="DRIVING">Driving</option>
-                          <option value="WALKING">Walking</option>
-                          <option value="BICYCLING">Bicycling</option>
-                          <option value="TRANSIT">Transit</option>
-                        </select>
+                    <input type="hidden" id = <%=JSPStringConstants.PlacesFoundInCentralLocation%>
+                     name=<%=JSPStringConstants.PlacesFoundInCentralLocation%> value="" >
+                    <div >
+                       <div id="PriceTitle">Price Range: </div>
+                       <select  id=<%=JSPStringConstants.PRICE%> name = <%=JSPStringConstants.PRICE%>>
+                         <option value="0">0</option>
+                         <option value="1">1</option>
+                         <option value="2">2</option>
+                         <option value="3">3</option>
+                         <option value="4">4</option>
+                       </select>
+                   </div>
+                   <div >
+                      <div id="RatingTitle">Rating: </div>
+                      <select  id=<%=JSPStringConstants.RATING%> name = <%=JSPStringConstants.RATING%>>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select>
                     </div>
+
+                    <div >
+                      <div id="StartTimeTitle">Start Time: </div>
+                      <select  id=<%=JSPStringConstants.STARTTIME%> name = <%=JSPStringConstants.STARTTIME%>>
+                        <option value="0">00:00</option>
+                        <option value="1">01:00</option>
+                        <option value="2">02:00</option>
+                        <option value="3">03:00</option>
+                        <option value="4">04:00</option>
+                        <option value="5">05:00</option>
+                        <option value="6">06:00</option>
+                        <option value="7">07:00</option>
+                        <option value="8">08:00</option>
+                        <option value="9">09:00</option>
+                        <option value="10">10:00</option>
+                        <option value="11">11:00</option>
+                        <option value="12">12:00</option>
+                        <option value="13">13:00</option>
+                        <option value="14">14:00</option>
+                        <option value="15">15:00</option>
+                        <option value="16">16:00</option>
+                        <option value="17">17:00</option>
+                        <option value="18">18:00</option>
+                        <option value="19">19:00</option>
+                        <option value="20">20:00</option>
+                        <option value="21">21:00</option>
+                        <option value="22">22:00</option>
+                        <option value="23">23:00</option>
+                      </select>
+                    </div>
+                    <div >
+                      <div id="EndTimeTitle">End Time: </div>
+                      <select  id=<%=JSPStringConstants.ENDTIME%> name = <%=JSPStringConstants.ENDTIME%>>
+                        <option value="0">00:00</option>
+                        <option value="1">01:00</option>
+                        <option value="2">02:00</option>
+                        <option value="3">03:00</option>
+                        <option value="4">04:00</option>
+                        <option value="5">05:00</option>
+                        <option value="6">06:00</option>
+                        <option value="7">07:00</option>
+                        <option value="8">08:00</option>
+                        <option value="9">09:00</option>
+                        <option value="10">10:00</option>
+                        <option value="11">11:00</option>
+                        <option value="12">12:00</option>
+                        <option value="13">13:00</option>
+                        <option value="14">14:00</option>
+                        <option value="15">15:00</option>
+                        <option value="16">16:00</option>
+                        <option value="17">17:00</option>
+                        <option value="18">18:00</option>
+                        <option value="19">19:00</option>
+                        <option value="20">20:00</option>
+                        <option value="21">21:00</option>
+                        <option value="22">22:00</option>
+                        <option value="23">23:00</option>
+                      </select>
+                    </div>
+
                 </div>
                     <input type="submit" value="Go!" name="Preferences" id="Preferences" class="clickButton"/>
                 </form>
