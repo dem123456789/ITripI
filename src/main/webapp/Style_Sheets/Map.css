@@ -61,3 +61,66 @@
     border-style:hidden;
     background-color: #33CCFF;
 }
+
+#PriceTitle{
+    top: 22%;
+    left: 14%;
+    z-index: 2;
+    position: absolute;
+}
+
+#Price{
+    top: 22%;
+    left: 20%;
+    width: 50px;
+    z-index: 2;
+    position: absolute;
+}
+
+#RatingTitle{
+    top: 26%;
+    left: 14%;
+    z-index: 2;
+    position: absolute;
+}
+
+
+#Rating{
+    top: 26%;
+    left: 20%;
+    width: 50px;
+    z-index: 2;
+    position: absolute;
+}
+
+#StartTimeTitle{
+    top: 31%;
+    left: 14%;
+    z-index: 2;
+    position: absolute;
+}
+
+#StartTime{
+    top: 31%;
+    left: 20%;
+    width: 80px;
+    z-index: 2;
+    position: absolute;
+}
+
+
+#EndTimeTitle{
+    top: 35%;
+    left: 14%;
+    z-index: 2;
+    position: absolute;
+}
+
+
+#EndTime{
+    top: 35%;
+    left: 20%;
+    width: 80px;
+    z-index: 2;
+    position: absolute;
+}

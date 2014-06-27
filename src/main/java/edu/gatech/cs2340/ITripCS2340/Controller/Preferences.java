@@ -30,7 +30,8 @@ public class Preferences extends SharedServletMethods {
     @Override
     public void doPost(HttpServletRequest request,
                        HttpServletResponse response)
-            throws ServletException, IOException {doGet(request, response);
+            throws ServletException, IOException {
+        doGet(request, response);
     }
     /**
      * Handles Login.jsp
@@ -64,21 +65,17 @@ public class Preferences extends SharedServletMethods {
 
         String distanceInMeters = String.valueOf(
                 JSPStringConstants.milesToMeters(Double.parseDouble(distanceInMiles)));
-        double rating =Double.parseDouble(
-                getStringParameterSafely(request, JSPStringConstants.RATING));
-        YelpAPI yelp = new YelpAPI(JSPStringConstants.YELP_API_KEY, JSPStringConstants.YELP_API_SECRET,
-                JSPStringConstants.YELP_TOKEN, JSPStringConstants.YELP_TOKEN_SECRET);
 
-        JSONArray businesses = getDetails(null);
-        System.out.println(distanceInMeters);
-        JSONArray temp=new JSONArray();
-        for (Object businessObj : businesses) {
-            JSONObject business = (JSONObject) businessObj;
-            if(rating<=(Double)business.get("rating"))
-                temp.add(business);
-        }
-        request.setAttribute(JSPStringConstants.BUSINESSES, temp.toString());
-        request.setAttribute(JSPStringConstants.BUSINESSES, businesses.toString());
+        String places = getStringParameterSafely(request,
+                JSPStringConstants.PlacesFoundInCentralLocation);
+
+        String price = getStringParameterSafely(request,
+                JSPStringConstants.PRICE);
+
+        String rating = getStringParameterSafely(request,
+                JSPStringConstants.RATING);
+
+
         request.setAttribute(JSPStringConstants.CENTRAL_LOCATION, "[{\"location\": \""+location+"\"}]");
         goToFileWithUser(request, response, user,
                 JSPStringConstants.MAP_JSP);
