@@ -11,11 +11,12 @@
            <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
            <script type="text/javascript">
            var placeSearch, autocompleteCentralLocation,map, directionsService,
-               directionsDisplay,centralLocationMarker;
+               directionsDisplay,centralLocationMarker,centralLocationLngLat;
 
 
              function initialize() {
                var pointOfInterets = ${Businesses};
+               var centralLocation = ${CentralLocation};
                directionsService = new google.maps.DirectionsService();
                directionsDisplay = new google.maps.DirectionsRenderer();
                var mapOptions = {
@@ -29,13 +30,32 @@
                directionsDisplay.setMap(map);
 
 
+                    geocoder = new google.maps.Geocoder();
+                    (function(centralLocation) {
+                        geocoder.geocode(
+                        { 'address': centralLocation[0].location},
+                        function(results, status) {
+                            if (status == google.maps.GeocoderStatus.OK) {
+                              var marker = new google.maps.Marker({
+                                  map: map,
+                                  position: results[0].geometry.location,
+                                  title: centralLocation[0].location,
+                                  icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+                              });
+                              centralLocationLngLat = results[0].geometry.location;
+                            }
+                        });
+                    })(centralLocation);
+
 
                   // For each place, get the icon, place name, and location.
                   for (var i = 0, place; place = pointOfInterets[i]; i++) {
 
-                    geocoder = new google.maps.Geocoder();
+
                     var businessName = place.name;
-                    (function(businessName) {
+                    var description = place.name + "\n" + place.location.display_address + "\n" +
+                        place.phone + "\n" + place.url + "\n" + place.snippet_text;
+                    (function(description) {
                     geocoder.geocode(
                     { 'address': place.location.address[0]+place.location.city+place.location.country_code},
                         function(results, status) {
@@ -43,10 +63,10 @@
                               var marker = new google.maps.Marker({
                                   map: map,
                                   position: results[0].geometry.location,
-                                  title: businessName
+                                  title: description
                               });
                               google.maps.event.addListener(marker, 'click', function(place) {
-                                  var start = centralLocation.formatted_address;
+                                  var start = centralLocationLngLat;
                                   var end = place.latLng;
                                   var selectedMode = document.getElementById('mode').value;
                                   var request = {
@@ -70,7 +90,7 @@
                             }
                           }
                     );
-                    })(businessName);
+                    })(description);
                    }
 
 

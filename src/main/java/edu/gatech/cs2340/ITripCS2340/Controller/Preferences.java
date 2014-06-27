@@ -66,7 +66,7 @@ public class Preferences extends SharedServletMethods {
         JSONArray businesses = yelp.queryAPI(interestPlace,location,distanceInMeters);
         System.out.println(distanceInMeters);
         request.setAttribute(JSPStringConstants.BUSINESSES, businesses.toString());
-
+        request.setAttribute(JSPStringConstants.CENTRAL_LOCATION, "[{\"location\": \""+location+"\"}]");
         goToFileWithUser(request, response, user,
                 JSPStringConstants.MAP_JSP);
     }
