@@ -164,6 +164,15 @@
                     <input id=<%=JSPStringConstants.DISTANCE%>
                         name=<%=JSPStringConstants.DISTANCE%> placeholder="Enter search radius(miles)"
                                  onFocus="geolocate()" type="text"/>
+                    <div id="TravelModePanel">
+                        <div>Mode of Travel: </div>
+                        <select id="mode">
+                          <option value="DRIVING">Driving</option>
+                          <option value="WALKING">Walking</option>
+                          <option value="BICYCLING">Bicycling</option>
+                          <option value="TRANSIT">Transit</option>
+                        </select>
+                    </div>
                 </div>
                     <input type="submit" value="Go!" name="Preferences" id="Preferences" class="clickButton"/>
                 </form>
