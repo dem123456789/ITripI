@@ -64,8 +64,28 @@
           radius:  getDistance()
        });
        searchBox.setBounds(searchArea.getBounds());
-       var places = searchBox.getPlaces();
-
+       var places = searchBox.getPlaces();     
+//       var placeDetails={
+//           results: []
+//       };
+//       service = new google.maps.places.PlacesService(map); 
+//       var delay=1000;//1 seconds
+//       for (var i = 0, place; place = places[i]; i++) {
+//           var request = {
+//                placeId: place.place_id
+//            };
+//            setTimeout(function(){
+//
+//            //your code to be executed after 1 seconds
+//            },delay);
+//            service.getDetails(request, addToArray)
+//        }
+//        function addToArray(place, status) {
+//            if (status == google.maps.places.PlacesServiceStatus.OK) {
+//            }
+//            placeDetails.results.push(place);
+//            placeDetails.results.push(status);
+//        }
        $('#PlacesCentralLocation').val(JSON.stringify(places));
 
        for (var i = 0, marker; marker = pointOfInterets[i]; i++) {

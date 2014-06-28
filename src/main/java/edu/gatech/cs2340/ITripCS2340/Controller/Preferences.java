@@ -66,7 +66,7 @@ public class Preferences extends SharedServletMethods {
         String distanceInMeters = String.valueOf(
                 JSPStringConstants.milesToMeters(Double.parseDouble(distanceInMiles)));
 
-        String places = getStringParameterSafely(request,
+        String JSONplaces = getStringParameterSafely(request,
                 JSPStringConstants.PlacesFoundInCentralLocation);
 
         String price = getStringParameterSafely(request,
@@ -74,8 +74,16 @@ public class Preferences extends SharedServletMethods {
 
         String rating = getStringParameterSafely(request,
                 JSPStringConstants.RATING);
-
-
+        
+        JSONArray places=new JSONArray();
+        JSONParser parser = new JSONParser();
+        try {
+            places = (JSONArray) parser.parse(JSONplaces);
+        } catch (ParseException pe) {
+            System.out.println("Error: could not parse JSON response:");
+        }
+        JSONArray businesses=getDetails(places);        
+        System.out.println(businesses.get(0).toString());
         request.setAttribute(JSPStringConstants.CENTRAL_LOCATION, "[{\"location\": \""+location+"\"}]");
         goToFileWithUser(request, response, user,
                 JSPStringConstants.MAP_JSP);
@@ -93,18 +101,17 @@ public class Preferences extends SharedServletMethods {
         for(Object obj: places)
         {
             JSONObject place =(JSONObject)obj;
+            System.out.println((String)place.get("place_id"));
             request = new OAuthRequest(Verb.GET,
-                "https://maps.googleapis.com/maps/api/place/details/js?key="+
-                        JSPStringConstants.GOOGLE_API_KEY);
-            request.addBodyParameter("placeid" , 
-                    (String)place.get("placeid"));
+                "https://maps.googleapis.com/maps/api/place/details/json?key="+
+                        "AIzaSyCtLn8udNQjOCy1uA14rduzDR88OxhL2RA&placeid="+(String)place.get("place_id"));
             Response response = request.send();
+            System.out.println(response.getBody());
             JSONParser parser = new JSONParser();
             try {
                 place = (JSONObject) parser.parse(response.getBody());
             } catch (ParseException pe) {
                 System.out.println("Error: could not parse JSON response:");
-                System.exit(1);
             }
             details.add(place.get("result"));
         }
