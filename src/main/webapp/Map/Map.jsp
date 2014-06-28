@@ -59,16 +59,13 @@
 
 
                     var businessName = place.name;
-                    var description = place.name + "\n" + place.location.display_address + "\n" +
-                        place.phone + "\n" + place.url + "\n" + place.snippet_text;
+                    var description = place.name + "\n" + place.formatted_address + "\n" +
+                        place.formatted_phone_number + "\n" + place.url + "\n" + place.rating;
                     (function(businessName) {
-                    geocoder.geocode(
-                    { 'address': place.location.address[0]+place.location.city+place.location.country_code},
-                        function(results, status) {
-                            if (status == google.maps.GeocoderStatus.OK) {
+                    
                               var marker = new google.maps.Marker({
                                   map: map,
-                                  position: results[0].geometry.location,
+                                  position: place.geometry.location,
                                   title: businessName
                               });
                               google.maps.event.addListener(marker, 'click', function(place) {
@@ -95,12 +92,9 @@
 
 
                               //pointOfInterets.push(marker);
-                            } else {
-                              alert('Geocode was not successful for the following reason: ' + status);
-                            }
-                          }
-                    );
-                    })(description);
+                         
+                    
+                    })(businessName);
                    }
              }
 
@@ -133,5 +127,11 @@
                    </div>
                </div>
            </div>
+           <form action="/ITripCS2340/Map/CentralLocation.jsp">
+                <input type="submit" value="Go back!" name="Preferences" id="Preferences" class="clickButton"/>
+           </form>
+            <form action="/ITripCS2340/Main.jsp">
+                <input type="submit" value="Acoount" name="Preferences" id="Preferences" class="clickButton2"/>
+           </form>
        </body>
        </html>

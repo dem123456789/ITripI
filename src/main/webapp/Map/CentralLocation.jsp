@@ -196,6 +196,15 @@
                                  onFocus="geolocate()" type="text"/>
                     <input type="hidden" id = <%=JSPStringConstants.PlacesFoundInCentralLocation%>
                      name=<%=JSPStringConstants.PlacesFoundInCentralLocation%> value="" >
+                    <div id="TravelModePanel">
+                       <div>Mode of Travel: </div>
+                       <select id="mode">
+                         <option value="DRIVING">Driving</option>
+                         <option value="WALKING">Walking</option>
+                         <option value="BICYCLING">Bicycling</option>
+                         <option value="TRANSIT">Transit</option>
+                       </select>
+                   </div>
                     <div >
                        <div id="PriceTitle">Price Range: </div>
                        <select  id=<%=JSPStringConstants.PRICE%> name = <%=JSPStringConstants.PRICE%>>
@@ -220,66 +229,68 @@
                     <div >
                       <div id="StartTimeTitle">Start Time: </div>
                       <select  id=<%=JSPStringConstants.STARTTIME%> name = <%=JSPStringConstants.STARTTIME%>>
-                        <option value="0">00:00</option>
-                        <option value="1">01:00</option>
-                        <option value="2">02:00</option>
-                        <option value="3">03:00</option>
-                        <option value="4">04:00</option>
-                        <option value="5">05:00</option>
-                        <option value="6">06:00</option>
-                        <option value="7">07:00</option>
-                        <option value="8">08:00</option>
-                        <option value="9">09:00</option>
-                        <option value="10">10:00</option>
-                        <option value="11">11:00</option>
-                        <option value="12">12:00</option>
-                        <option value="13">13:00</option>
-                        <option value="14">14:00</option>
-                        <option value="15">15:00</option>
-                        <option value="16">16:00</option>
-                        <option value="17">17:00</option>
-                        <option value="18">18:00</option>
-                        <option value="19">19:00</option>
-                        <option value="20">20:00</option>
-                        <option value="21">21:00</option>
-                        <option value="22">22:00</option>
-                        <option value="23">23:00</option>
+                        <option value="0000">00:00</option>
+                        <option value="0100">01:00</option>
+                        <option value="0200">02:00</option>
+                        <option value="0300">03:00</option>
+                        <option value="0400">04:00</option>
+                        <option value="0500">05:00</option>
+                        <option value="0600">06:00</option>
+                        <option value="0700">07:00</option>
+                        <option value="0800">08:00</option>
+                        <option value="0900">09:00</option>
+                        <option value="1000">10:00</option>
+                        <option value="1100">11:00</option>
+                        <option value="1200">12:00</option>
+                        <option value="1300">13:00</option>
+                        <option value="1400">14:00</option>
+                        <option value="1500">15:00</option>
+                        <option value="1600">16:00</option>
+                        <option value="1700">17:00</option>
+                        <option value="1800">18:00</option>
+                        <option value="1900">19:00</option>
+                        <option value="2000">20:00</option>
+                        <option value="2100">21:00</option>
+                        <option value="2200">22:00</option>
+                        <option value="2300">23:00</option>
                       </select>
                     </div>
                     <div >
                       <div id="EndTimeTitle">End Time: </div>
                       <select  id=<%=JSPStringConstants.ENDTIME%> name = <%=JSPStringConstants.ENDTIME%>>
-                        <option value="0">00:00</option>
-                        <option value="1">01:00</option>
-                        <option value="2">02:00</option>
-                        <option value="3">03:00</option>
-                        <option value="4">04:00</option>
-                        <option value="5">05:00</option>
-                        <option value="6">06:00</option>
-                        <option value="7">07:00</option>
-                        <option value="8">08:00</option>
-                        <option value="9">09:00</option>
-                        <option value="10">10:00</option>
-                        <option value="11">11:00</option>
-                        <option value="12">12:00</option>
-                        <option value="13">13:00</option>
-                        <option value="14">14:00</option>
-                        <option value="15">15:00</option>
-                        <option value="16">16:00</option>
-                        <option value="17">17:00</option>
-                        <option value="18">18:00</option>
-                        <option value="19">19:00</option>
-                        <option value="20">20:00</option>
-                        <option value="21">21:00</option>
-                        <option value="22">22:00</option>
-                        <option value="23">23:00</option>
+                        <option value="0000">00:00</option>
+                        <option value="0100">01:00</option>
+                        <option value="0200">02:00</option>
+                        <option value="0300">03:00</option>
+                        <option value="0400">04:00</option>
+                        <option value="0500">05:00</option>
+                        <option value="0600">06:00</option>
+                        <option value="0700">07:00</option>
+                        <option value="0800">08:00</option>
+                        <option value="0900">09:00</option>
+                        <option value="1000">10:00</option>
+                        <option value="1100">11:00</option>
+                        <option value="1200">12:00</option>
+                        <option value="1300">13:00</option>
+                        <option value="1400">14:00</option>
+                        <option value="1500">15:00</option>
+                        <option value="1600">16:00</option>
+                        <option value="1700">17:00</option>
+                        <option value="1800">18:00</option>
+                        <option value="1900">19:00</option>
+                        <option value="2000">20:00</option>
+                        <option value="2100">21:00</option>
+                        <option value="2200">22:00</option>
+                        <option value="2300">23:00</option>
                       </select>
                     </div>
 
                 </div>
                     <input type="submit" value="Go!" name="Preferences" id="Preferences" class="clickButton"/>
                 </form>
-
     </div>
+                <form action="/ITripCS2340/Main.jsp">
+                    <input type="submit" value="Acoount" name="Preferences" id="Preferences" class="clickButton2"/>
+                </form>
 </body>
 </html>

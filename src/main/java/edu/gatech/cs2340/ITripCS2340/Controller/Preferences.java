@@ -69,12 +69,17 @@ public class Preferences extends SharedServletMethods {
         String JSONplaces = getStringParameterSafely(request,
                 JSPStringConstants.PlacesFoundInCentralLocation);
 
-        String price = getStringParameterSafely(request,
+        String priceString = getStringParameterSafely(request,
                 JSPStringConstants.PRICE);
 
-        String rating = getStringParameterSafely(request,
+        String ratingString = getStringParameterSafely(request,
                 JSPStringConstants.RATING);
-        
+        String startTimeString=getStringParameterSafely(request, JSPStringConstants.STARTTIME);
+        String endTimeString=getStringParameterSafely(request, JSPStringConstants.ENDTIME);
+        int price=Integer.parseInt(priceString);
+        int rating=Integer.parseInt(ratingString);
+        int startTime=Integer.parseInt(startTimeString);
+        int endTime=Integer.parseInt(endTimeString);
         JSONArray places=new JSONArray();
         JSONParser parser = new JSONParser();
         try {
@@ -83,11 +88,68 @@ public class Preferences extends SharedServletMethods {
             System.out.println("Error: could not parse JSON response:");
         }
         JSONArray businesses=getDetails(places);        
-        System.out.println(businesses.get(0).toString());
+        JSONArray filter=new JSONArray();
+        for(Object obj: businesses)
+        {
+            JSONObject business =(JSONObject)obj;
+            System.out.println("Start");
+            try {
+                if ((long) business.get("price_level") <= price) {
+                    parseAnything(business, filter, startTime, endTime, rating);
+                }
+            } catch (Exception e) {
+                if ((double) business.get("price_level") <= price) {
+                    parseAnything(business, filter, startTime, endTime, rating);
+                }
+            }
+        }
+        request.setAttribute(JSPStringConstants.BUSINESSES, filter);
         request.setAttribute(JSPStringConstants.CENTRAL_LOCATION, "[{\"location\": \""+location+"\"}]");
         goToFileWithUser(request, response, user,
                 JSPStringConstants.MAP_JSP);
     }
+    
+    private void parseAnything(JSONObject business, JSONArray filter, int startTime, int endTime, int rating)
+    {
+        System.out.println("AAAAAAAAAAAAAAAAAAAAA");
+        try {
+            System.out.println("1");
+            if ((double) business.get("rating") >= rating) {
+                System.out.println("2");
+                parseEverthing(business, filter, startTime, endTime);
+            }
+        } catch (Exception e) {
+            System.out.println("3");
+            try{                
+                if ((long) business.get("rating") >= rating) {
+                    System.out.println("4");
+                    parseEverthing(business, filter, startTime, endTime);
+                }
+            }catch(Exception ex){
+            }
+        }
+    }
+    
+    private void parseEverthing(JSONObject business, JSONArray filter, int startTime, int endTime)
+    {
+            System.out.println("BBBBBBBBBBBBBBBBBBBBBBBBBB");
+            try {
+                    JSONObject opening = (JSONObject) business.get("opening_hours");
+                    JSONArray period = (JSONArray) opening.get("periods");
+                    JSONObject monday = (JSONObject) period.get(1);
+                    JSONObject open = (JSONObject) monday.get("open");
+                    JSONObject closed = (JSONObject) monday.get("close");
+                    int begin = Integer.parseInt((String) open.get("time"));
+                    int end = Integer.parseInt((String) closed.get("time"));
+                    if ((startTime <= begin && endTime >= begin) || (startTime <= end && endTime >= end)) {
+                        System.out.println("CCCCCCCCCCCCCCCCCCCCCCCCC");
+                        filter.add(business);
+                    }
+            } catch (Exception e) {
+            }
+            
+    }
+    
     
     /**
     * returns the details of all the places returned in a Place Search
@@ -101,12 +163,10 @@ public class Preferences extends SharedServletMethods {
         for(Object obj: places)
         {
             JSONObject place =(JSONObject)obj;
-            System.out.println((String)place.get("place_id"));
             request = new OAuthRequest(Verb.GET,
                 "https://maps.googleapis.com/maps/api/place/details/json?key="+
                         "AIzaSyCtLn8udNQjOCy1uA14rduzDR88OxhL2RA&placeid="+(String)place.get("place_id"));
             Response response = request.send();
-            System.out.println(response.getBody());
             JSONParser parser = new JSONParser();
             try {
                 place = (JSONObject) parser.parse(response.getBody());

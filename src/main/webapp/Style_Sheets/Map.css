@@ -44,7 +44,7 @@
 }
 
 #TravelModePanel{
-    top: 21%;
+    top: 39%;
     left: 14%;
     width: 14%;
     z-index: 2;
@@ -54,6 +54,16 @@
 .clickButton{
     position: absolute;
     top: 80%;
+    left: 60%;
+    width: 8%;
+    color: white;
+    font-weight:bold;
+    border-style:hidden;
+    background-color: #33CCFF;
+}
+.clickButton2{
+    position: absolute;
+    top: 70%;
     left: 60%;
     width: 8%;
     color: white;
