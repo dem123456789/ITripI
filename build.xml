@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <project name="ITripCS2340" default="compile" basedir=".">
+=======
+<project name="todo" default="compile" basedir=".">
+>>>>>>> c1f8ee7124ce91e28367c02a5614c47b35952ed5
 
   <property environment="env"/>
   <property name="app.name"      value="ITripCS2340"/>
@@ -29,7 +33,11 @@
 
   <target name="clean"
    description="Delete old build and dist directories">
+<<<<<<< HEAD
     <delete dir= "${catalina.home}/webapps/${app.name}"/>
+=======
+    <delete dir="${build.home}"/>
+>>>>>>> c1f8ee7124ce91e28367c02a5614c47b35952ed5
   </target>
 
   <target name="compile" description="Compile Java sources">
@@ -80,12 +88,19 @@
 
   <target name="deploy" depends="prepare">
     <mkdir dir="${catalina.home}/webapps/${app.name}"/>
+<<<<<<< HEAD
     <copy  todir="${catalina.home}/webapps/${app.name}">
       <fileset dir="${build.home}"/>
     </copy>    
     <copy todir="${catalina.home}/lib" overwrite="true">
       <fileset dir="${basedir}/lib"/>
     </copy>
+=======
+    
+    <copy  todir="${catalina.home}/webapps/${app.name}">
+      <fileset dir="${build.home}"/>
+    </copy>    
+>>>>>>> c1f8ee7124ce91e28367c02a5614c47b35952ed5
   </target>
 
 </project>
