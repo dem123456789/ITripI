@@ -1,68 +1,69 @@
 package edu.gatech.cs2340.ITripCS2340.Controller;
 
-import edu.gatech.cs2340.ITripCS2340.Model.Hash;
-import edu.gatech.cs2340.ITripCS2340.Model.Password;
-import edu.gatech.cs2340.ITripCS2340.Model.Username;
+import edu.gatech.cs2340.ITripCS2340.Model.Database;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.scribe.builder.ServiceBuilder;
-import org.scribe.builder.api.GoogleApi;
-import org.scribe.model.OAuthRequest;
-import org.scribe.model.Response;
-import org.scribe.model.Token;
-import org.scribe.model.Verb;
-import org.scribe.model.Verifier;
-import org.scribe.oauth.OAuthService;
 
 /**
- * Handles Login.jsp
- * Created by Jonathan on 6/11/2014.
-    * @author Jonathan
-    * @version 1.0
-            */
+ * Handles Login.jsp Created by Jonathan on 6/11/2014.
+ *
+ * @author Jonathan
+ * @version 1.0
+ */
+@WebServlet("/Login/")
+public class Login extends SharedServletMethods {
 
-    @WebServlet("/Login/")
-    public class Login extends SharedServletMethods {
-        private Hash table;
+    /**
+     * initializes the ORMlite database
+     *
+     * @throws javax.servlet.ServletException
+     */
+    @Override
+    public void init() throws ServletException {
+        Database.setupDatabase(getServletContext().getRealPath("/"));
 
-        @Override
+    }
+
+    @Override
     public void doPost(HttpServletRequest request,
-                       HttpServletResponse response)
+            HttpServletResponse response)
             throws ServletException, IOException {
         doGet(request, response);
     }
+
     /**
      * Handles Login.jsp
-     * @param request  HTTP request
+     *
+     * @param request HTTP request
      * @param response HTTP response
      * @throws javax.servlet.ServletException
      * @throws java.io.IOException
      */
     @Override
     public void doGet(HttpServletRequest request,
-                      HttpServletResponse response)
+            HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            table = new Hash(getServletContext().getRealPath("/"));
-        } catch (IOException e) {
-            System.out.println("Path Error");
+        if (isParamThere(request, JSPStringConstants.GO_BACK_FLAG)) {
+            goToFile(request, response, JSPStringConstants.REGISTER_JSP);
+            return; //can't let other code execute
         }
-        Username user = new Username(
-                getStringParameterSafely(request,
-                        JSPStringConstants.USERNAME_PARAM));
-        Password pass = new Password(
-                getStringParameterSafely(request,
-                        JSPStringConstants.PASSWORD_PARAM));
+        String user = getStringParameterSafely(request,
+                JSPStringConstants.USERNAME_PARAM);
+        String pass = getStringParameterSafely(request,
+                JSPStringConstants.PASSWORD_PARAM);
         synchronized (this) {
             logIn(request, response, user, pass);
         }
+
     }
+
     /**
      * Error checks User input and Logs them in if it is correct
-     * @param request  HTTP request
+     *
+     * @param request HTTP request
      * @param response HTTP response
      * @param user The username that was entered
      * @param pass The password that was entered
@@ -70,26 +71,28 @@ import org.scribe.oauth.OAuthService;
      * @throws java.io.IOException
      */
     private void logIn(HttpServletRequest request,
-                       HttpServletResponse response,
-                       Username user, Password pass)
+            HttpServletResponse response,
+            String user, String pass)
             throws ServletException, IOException {
-        if (!table.containsUsername(user)) {
+        if (!Database.checkIfUserExists(user)) {
             request.setAttribute(
                     JSPStringConstants.USERNAME_NOT_FOUND_ERROR, 1);
             request.setAttribute(
-                    JSPStringConstants.PASSWORD_PARAM, pass.getPassword());
-            goToFileWithUser(request, response, user,
-                    JSPStringConstants.LOGIN_JSP);
-        } else if (!table.checkCorrectPassword(user, pass)) {
+                    JSPStringConstants.USERNAME_PARAM, user);
+            request.setAttribute(
+                    JSPStringConstants.PASSWORD_PARAM, pass);
+            goToFile(request, response, JSPStringConstants.LOGIN_JSP);
+        } else if (!Database.checkPassword(user, pass)) {
             request.setAttribute(
                     JSPStringConstants.PASSWORD_INCORRECT_ERROR, 1);
             request.setAttribute(
-                    JSPStringConstants.PASSWORD_PARAM, pass.getPassword());
-            goToFileWithUser(request, response, user,
-                    JSPStringConstants.LOGIN_JSP);
+                    JSPStringConstants.USERNAME_PARAM, user);
+            request.setAttribute(
+                    JSPStringConstants.PASSWORD_PARAM, pass);
+            goToFile(request, response, JSPStringConstants.LOGIN_JSP);
         } else {
-            goToFileWithUser(request, response, user,
-                    JSPStringConstants.MAIN_JSP);
+            addAccountToSession(request, Database.getAccount(user));
+            goToFile(request, response, JSPStringConstants.MAIN_JSP);
         }
     }
 }

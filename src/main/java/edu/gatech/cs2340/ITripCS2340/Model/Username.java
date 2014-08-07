@@ -17,7 +17,7 @@ public class Username implements java.io.Serializable {
 
     /**
      * The constructor for username.
-     * @param username
+     * @param username  the username in String
      */
     public Username(String username) {
         this.username = username;
@@ -25,7 +25,7 @@ public class Username implements java.io.Serializable {
 
     /**
      * The setter for username.
-     * @param username
+     * @param username the username in String
      */
     public void setUsername(String username) {
         this.username = username;
@@ -56,8 +56,8 @@ public class Username implements java.io.Serializable {
 
     /**
      * The equals method inherits from Object class
-     * @param obj
-     * @return if two usernames are the same
+     * @param obj  The one to be compared with
+     * @return     if two usernames are the same
      */
     public boolean equals(Object obj) {
         if (this == obj) {

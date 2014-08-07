@@ -1,0 +1,228 @@
+#Frame{
+    background-color: #F0F8FF;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+}
+
+#map_canvas{
+    width: 50%;
+    height: 80%;
+    top: 10%;
+    left: 8%;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #333333;
+    position: fixed;
+}
+
+#CentralLocation{
+    top: 12%;
+    left: 14%;
+    width: 14%;
+    z-index: 2;
+    position: absolute;
+}
+
+#InterestPlace{
+    top: 15%;
+    left: 14%;
+    width: 14%;
+    z-index: 2;
+    position: absolute;
+}
+
+#Distance{
+    top: 18%;
+    left: 14%;
+    width: 14%;
+    z-index: 2;
+    position: absolute;
+}
+
+#TravelModePanel{
+    top: 39%;
+    left: 14%;
+    width: 14%;
+    z-index: 2;
+    position: absolute;
+}
+
+#StartTimeTitle{
+    top: 31%;
+    left: 14%;
+    z-index: 2;
+    position: absolute;
+}
+
+#StartTime{
+    top: 31%;
+    left: 22%;
+    width: 80px;
+    z-index: 2;
+    position: absolute;
+}
+
+
+#EndTimeTitle{
+    top: 35%;
+    left: 14%;
+    z-index: 2;
+    position: absolute;
+}
+
+
+#EndTime{
+    top: 35%;
+    left: 22%;
+    width: 80px;
+    z-index: 2;
+    position: absolute;
+}
+
+.clickButton{
+    position: absolute;
+    top: 93%;
+    left: 35%;
+    width: 8%;
+    color: white;
+    font-weight:bold;
+    border-style:hidden;
+    background-color: #33CCFF;
+}
+.clickButton2{
+    position: absolute;
+    top: 93%;
+    left: 44%;
+    width: 8%;
+    color: white;
+    font-weight:bold;
+    border-style:hidden;
+    background-color: #33CCFF;
+}
+
+#SavePlaces{
+    position: absolute;
+    top: 85%;
+    left: 73%;
+    width: 6%;
+    color: white;
+    font-weight:bold;
+    border-style:hidden;
+    background-color: #33CCFF;
+}
+
+#ResultsTitle{
+    top: 6%;
+    left: 22%;
+    z-index: 2;
+    position: absolute;
+}
+
+#ResulstsBox{
+    top: 10%;
+    left: 22%;
+    width: 30%;
+    height: 70%;
+    z-index: 2;
+    background-color: #FFFFFF;
+    position: absolute;
+    overflow: auto;
+}
+
+#YelpTitle{
+    top: 6%;
+    left: 22%;
+    z-index: 2;
+    position: absolute;
+}
+
+#itineraryTitle{
+    top: 6%;
+    left: 62%;
+    z-index: 2;
+    position: absolute;
+}
+
+#ItinerariesBox{
+    top: 10%;
+    left: 62%;
+    width: 30%;
+    height: 70%;
+    z-index: 2;
+    background-color: #FFFFFF;
+    position: absolute;
+    overflow: auto;
+}
+
+#AddPoint{
+    position: absolute;   
+    top: 85%;
+    left: 62%;
+    width: 6%;
+    color: white;
+    font-weight:bold;
+    border-style:hidden;
+    background-color: #33CCFF;
+}
+
+#DeletePoint{
+    position: absolute;
+    top: 85%;
+    left: 84%;
+    width: 6%;
+    color: white;
+    font-weight:bold;
+    border-style:hidden;
+    background-color: #33CCFF;
+}
+
+.ui-selecting{
+    background: #FECA40; 
+}
+
+.ui-selected { 
+    background: #F39814; 
+    color: white; 
+}
+
+#Legend{
+    top: 25%;
+    left: 10%;
+    z-index: 2;
+    position: absolute;
+}
+
+#StartTimeTitleEvent{
+    top: 31%;
+    left: 10%;
+    z-index: 2;
+    position: absolute;
+}
+
+#StartTimeEvent{
+    top: 31%;
+    left: 16%;
+    width: 80px;
+    z-index: 2;
+    position: absolute;
+}
+
+
+#EndTimeTitleEvent{
+    top: 35%;
+    left: 10%;
+    z-index: 2;
+    position: absolute;
+}
+
+
+#EndTimeEvent{
+    top: 35%;
+    left: 16%;
+    width: 80px;
+    z-index: 2;
+    position: absolute;
+}

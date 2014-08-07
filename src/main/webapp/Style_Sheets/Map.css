@@ -53,8 +53,8 @@
 
 .clickButton{
     position: absolute;
-    top: 80%;
-    left: 60%;
+    top: 93%;
+    left: 35%;
     width: 8%;
     color: white;
     font-weight:bold;
@@ -63,9 +63,42 @@
 }
 .clickButton2{
     position: absolute;
-    top: 70%;
-    left: 60%;
+    top: 93%;
+    left: 44%;
     width: 8%;
+    color: white;
+    font-weight:bold;
+    border-style:hidden;
+    background-color: #33CCFF;
+}
+
+#SavePlaces{
+    position: absolute;
+    top: 85%;
+    left: 73%;
+    width: 6%;
+    color: white;
+    font-weight:bold;
+    border-style:hidden;
+    background-color: #33CCFF;
+}
+
+#DisplayRoutes{
+    position: absolute;
+    top: 93%;
+    left: 49%;
+    width: 10%;
+    color: white;
+    font-weight:bold;
+    border-style:hidden;
+    background-color: #33CCFF;
+}
+
+#SaveHomeBase{
+    position: absolute;
+    top: 93%;
+    left: 57%;
+    width: 10%;
     color: white;
     font-weight:bold;
     border-style:hidden;
@@ -81,8 +114,8 @@
 
 #Price{
     top: 22%;
-    left: 20%;
-    width: 50px;
+    left: 22%;
+    width: 85px;
     z-index: 2;
     position: absolute;
 }
@@ -97,7 +130,7 @@
 
 #Rating{
     top: 26%;
-    left: 20%;
+    left: 22%;
     width: 50px;
     z-index: 2;
     position: absolute;
@@ -112,7 +145,7 @@
 
 #StartTime{
     top: 31%;
-    left: 20%;
+    left: 22%;
     width: 80px;
     z-index: 2;
     position: absolute;
@@ -129,7 +162,95 @@
 
 #EndTime{
     top: 35%;
-    left: 20%;
+    left: 22%;
+    width: 80px;
+    z-index: 2;
+    position: absolute;
+}
+
+#itineraryTitle{
+    top: 6%;
+    left: 62%;
+    z-index: 2;
+    position: absolute;
+}
+
+#ItinerariesBox{
+    top: 10%;
+    left: 62%;
+    width: 30%;
+    height: 70%;
+    z-index: 2;
+    background-color: #FFFFFF;
+    position: absolute;
+    overflow: auto;
+}
+
+#AddPoint{
+    position: absolute;   
+    top: 85%;
+    left: 62%;
+    width: 6%;
+    color: white;
+    font-weight:bold;
+    border-style:hidden;
+    background-color: #33CCFF;
+}
+
+#DeletePoint{
+    position: absolute;
+    top: 85%;
+    left: 84%;
+    width: 6%;
+    color: white;
+    font-weight:bold;
+    border-style:hidden;
+    background-color: #33CCFF;
+}
+
+.ui-selecting{
+    background: #FECA40; 
+}
+
+.ui-selected { 
+    background: #F39814; 
+    color: white; 
+}
+
+#Legend{
+    top: 25%;
+    left: 12%;
+    z-index: 2;
+    position: absolute;
+}
+
+#StartTimeTitleEvent{
+    top: 31%;
+    left: 12%;
+    z-index: 2;
+    position: absolute;
+}
+
+#StartTimeEvent{
+    top: 31%;
+    left: 18%;
+    width: 80px;
+    z-index: 2;
+    position: absolute;
+}
+
+
+#EndTimeTitleEvent{
+    top: 35%;
+    left: 12%;
+    z-index: 2;
+    position: absolute;
+}
+
+
+#EndTimeEvent{
+    top: 35%;
+    left: 18%;
     width: 80px;
     z-index: 2;
     position: absolute;

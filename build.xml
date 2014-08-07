@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-<project name="ITripCS2340" default="compile" basedir=".">
-=======
-<project name="todo" default="compile" basedir=".">
->>>>>>> c1f8ee7124ce91e28367c02a5614c47b35952ed5
+<project name="ITripCS2340" default="compile" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
 
   <property environment="env"/>
   <property name="app.name"      value="ITripCS2340"/>
@@ -30,14 +26,28 @@
     </fileset>
     <pathelement path="${build.home}/WEB-INF/classes" />
   </path>
-
+  
+  <!--
+  <artifact:dependencies pathId="dependency.classpath">
+  <dependency groupId="junit" artifactId="junit" version="4.11"/>
+  <dependency groupId="com.puppycrawl.tools" artifactId="checkstyle" version="5.6"/>
+  <dependency groupId="com.googlecode.json-simple" artifactId="json-simple" version="1.1.1"/>
+  <dependency groupId="org.hamcrest" artifactId="hamcrest-core" version="1.3"/>
+  <dependency groupId="org.webjars" artifactId="jquery-ui" version="1.11.0"/>
+  <dependency groupId="org.scribe" artifactId="scribe" version="1.3.5"/>
+  <dependency groupId="org.xerial" artifactId="sqlite-jdbc" version="3.7.2"/>
+  <dependency groupId="org.webjars" artifactId="bootstrap" version="3.2.0"/>
+  </artifact:dependencies>
+ -->
   <target name="clean"
    description="Delete old build and dist directories">
-<<<<<<< HEAD
-    <delete dir= "${catalina.home}/webapps/${app.name}"/>
-=======
+    <delete dir="${catalina.home}/webapps/${app.name}"/>
     <delete dir="${build.home}"/>
->>>>>>> c1f8ee7124ce91e28367c02a5614c47b35952ed5
+	<delete>
+      <fileset dir="${catalina.home}/lib">
+        <present present="both" targetdir="${basedir}/lib"/>
+      </fileset>
+    </delete>
   </target>
 
   <target name="compile" description="Compile Java sources">
@@ -88,19 +98,41 @@
 
   <target name="deploy" depends="prepare">
     <mkdir dir="${catalina.home}/webapps/${app.name}"/>
-<<<<<<< HEAD
     <copy  todir="${catalina.home}/webapps/${app.name}">
       <fileset dir="${build.home}"/>
     </copy>    
     <copy todir="${catalina.home}/lib" overwrite="true">
       <fileset dir="${basedir}/lib"/>
     </copy>
-=======
-    
-    <copy  todir="${catalina.home}/webapps/${app.name}">
-      <fileset dir="${build.home}"/>
-    </copy>    
->>>>>>> c1f8ee7124ce91e28367c02a5614c47b35952ed5
   </target>
-
+  
+ <!--failOnViolation="false"-->
+ 
+  <taskdef resource="checkstyletask.properties" classpath="${basedir}/lib/checkstyle-5.6-all.jar"/> 
+  <checkstyle config="${basedir}/CheckStyle.xml" failOnViolation="false">
+	<fileset dir="src" includes="**/*.java"/>
+  </checkstyle>
+  
+   <target name="restart">
+        <antcall target="stop" />
+        <antcall target="start" />
+    </target>
+ 
+    <target name="start">
+        <java classname="org.apache.catalina.startup.Bootstrap" fork="true">
+            <classpath path="${catalina.home}/bin/bootstrap.jar:${catalina.home}/bin/tomcat-juli.jar" />
+            <jvmarg value="-Dcatalina.home=${catalina.home}"/>
+            <!--If you are getting any OutOfMemoryError, remove the comments 
+            and enable jvm argument of the following line-->
+            <!--jvmarg value="-XX:MaxPermSize=256m"/-->
+        </java>
+    </target>
+ 
+    <target name="stop">
+        <java classname="org.apache.catalina.startup.Bootstrap" fork="true">
+            <classpath path="${catalina.home}/bin/bootstrap.jar:${catalina.home}/bin/tomcat-juli.jar" />
+            <jvmarg value="-Dcatalina.home=${catalina.home}"/>
+            <arg line="stop"/>
+        </java>
+    </target>
 </project>

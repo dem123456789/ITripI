@@ -8,6 +8,9 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     </head>
     <body>
+        <%if(session.getAttribute(JSPStringConstants.ACCOUNT_PARAM)!=null){%>
+            <jsp:forward page="<%=JSPStringConstants.MAIN_JSP%>"/>
+        <%}%>
         <div id="LoginComponentsContainer">
             <form action="/ITripCS2340/Register/" method="POST">
                 <table cellspacing="1" cellpadding="3" border="0" >

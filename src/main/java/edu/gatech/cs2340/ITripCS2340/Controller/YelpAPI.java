@@ -30,8 +30,8 @@ public class YelpAPI {
     private static final String TOKEN = "";
     private static final String TOKEN_SECRET = "";
 
-    OAuthService service;
-    Token accessToken;
+    private OAuthService service;
+    private Token accessToken;
 
     /**
      * Setup the Yelp API OAuth credentials.
@@ -41,24 +41,28 @@ public class YelpAPI {
      * @param token Token
      * @param tokenSecret Token secret
      */
-    public YelpAPI(String consumerKey, String consumerSecret, String token, String tokenSecret) {
-        this.service =
-                new ServiceBuilder().provider(YelpOAuth.class).apiKey(consumerKey)
-                        .apiSecret(consumerSecret).build();
+    public YelpAPI(String consumerKey, String consumerSecret,
+            String token, String tokenSecret) {
+        this.service = new ServiceBuilder()
+                .provider(YelpOAuth.class).apiKey(consumerKey)
+                .apiSecret(consumerSecret).build();
         this.accessToken = new Token(token, tokenSecret);
     }
 
     /**
      * Creates and sends a request to the Search API by term and location.
      * <p>
-     * See <a href="http://www.yelp.com/developers/documentation/v2/search_api">Yelp Search API V2</a>
+     * See <a href="http://www.yelp.com/developers
+     * /documentation/v2/search_api">Yelp Search API V2</a>
      * for more info.
      *
      * @param term <tt>String</tt> of the search term to be queried
      * @param location <tt>String</tt> of the location
+     * @param radius
      * @return <tt>String</tt> JSON Response
      */
-    public String searchForBusinessesByLocation(String term, String location, String radius) {
+    public String searchForBusinessesByLocation(String term,
+            String location, String radius) {
         OAuthRequest request = createOAuthRequest(SEARCH_PATH);
         request.addQuerystringParameter("term", term);
         request.addQuerystringParameter("location", location);
@@ -71,25 +75,29 @@ public class YelpAPI {
     /**
      * Creates and sends a request to the Business API by business ID.
      * <p>
-     * See <a href="http://www.yelp.com/developers/documentation/v2/business">Yelp Business API V2</a>
+     * See <a href="http://www.yelp.com/developers/
+     * documentation/v2/business">Yelp Business API V2</a>
      * for more info.
      *
      * @param businessID <tt>String</tt> business ID of the requested business
      * @return <tt>String</tt> JSON Response
      */
     public String searchByBusinessId(String businessID) {
-        OAuthRequest request = createOAuthRequest(BUSINESS_PATH + "/" + businessID);
+        OAuthRequest request = createOAuthRequest(BUSINESS_PATH
+                + "/" + businessID);
         return sendRequestAndGetResponse(request);
     }
 
     /**
-     * Creates and returns an {@link OAuthRequest} based on the API endpoint specified.
+     * Creates and returns an {@link OAuthRequest} based on the API endpoint
+     * specified
      *
      * @param path API endpoint to be queried
      * @return <tt>OAuthRequest</tt>
      */
     private OAuthRequest createOAuthRequest(String path) {
-        OAuthRequest request = new OAuthRequest(Verb.GET, "http://" + API_HOST + path);
+        OAuthRequest request = new OAuthRequest(Verb.GET,
+                "http://" + API_HOST + path);
         return request;
     }
 
@@ -107,15 +115,17 @@ public class YelpAPI {
     }
 
     /**
-     * Queries the Search API based on the command line arguments and takes the first result to query
-     * the Business API.
+     * Queries the Search API based on the command line arguments and takes the
+     * first result to query the Business API.
      *
-     * @param yelpApi <tt>YelpAPI</tt> service instance
-     * @param yelpApiCli <tt>YelpAPICLI</tt> command line arguments
+     * @param term
+     * @param location
+     * @param radius
+     * @return
      */
     public JSONArray queryAPI(String term, String location, String radius) {
-        String searchResponseJSON =
-                this.searchForBusinessesByLocation(term, location,radius);
+        String searchResponseJSON
+                = this.searchForBusinessesByLocation(term, location, radius);
 
         JSONParser parser = new JSONParser();
         JSONObject response = null;

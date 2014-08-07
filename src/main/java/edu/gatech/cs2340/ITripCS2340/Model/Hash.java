@@ -1,4 +1,5 @@
 package edu.gatech.cs2340.ITripCS2340.Model;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -7,44 +8,44 @@ import java.io.ObjectOutputStream;
 import java.util.Hashtable;
 
 /**
- * This class wraps up Username and Password inside a Hashtable.
- * It use serialization to output and input file so that the server
- * can store the usernames and passwords. Usernames is Key, Password
- * is Value.
- * Created by Dreamsoul on 2014/6/8.
+ * This class wraps up Username and Password inside a Hashtable. It use
+ * serialization to output and input file so that the server can store the
+ * usernames and passwords. Usernames is Key, Password is Value. Created by
+ * Dreamsoul on 2014/6/8.
+ *
  * @author Dreamsoul
  * @version 1.0
  */
 public class Hash {
 
-    private Hashtable<Username, Password> data;
+    private Hashtable<Integer, Account> data;
     private String relativePath;
 
-
     /**
-     * The constructor for Hash.
-     * It input file if existed otherwise initialize a empty hashtable
-     * and output serialized file.
-     * @param path  The path where store the serialized hashtable
+     * The constructor for Hash. It input file if existed otherwise initialize a
+     * empty hashtable and output serialized file.
+     *
+     * @param path The path where store the serialized hashtable
      */
     public Hash(String path) throws IOException {
         relativePath = path;
         try {
             inputFile();
         } catch (IOException e) {
-            data = new Hashtable<Username, Password>();
+            data = new Hashtable<Integer, Account>();
             outputFile();
         }
     }
 
     /**
-     * This method adds username and password
-     * as an account. It will input file each time to refresh
-     * the data. It will output data after it adds the account
-     * @param username  the Key in hashtable
-     * @param password  the Value in hashtable
+     * This method adds username and password as an account. It will input file
+     * each time to refresh the data. It will output data after it adds the
+     * account
+     *
+     * @param username the Key in hashtable
+     * @param password the Value in hashtable
      */
-    public void addAccount(Username username, Password password)
+    public void addAccount(String username, String password)
             throws IOException {
         try {
             inputFile();
@@ -53,19 +54,21 @@ public class Hash {
         }
         if (password != null && username != null
                 && !containsUsername(username)) {
-            data.put(username, password);
+            data.put(Account.fnvHash(username),
+                    new Account(username, password));
             outputFile();
         }
     }
 
     /**
-     * This method remove an account based on username and password
-     * It will input file each time to refresh
-     * the data. It will output data after it removes the account
-     * @param username  the Key in hashtable
+     * This method remove an account based on username and password It will
+     * input file each time to refresh the data. It will output data after it
+     * removes the account
+     *
+     * @param username the Key in hashtable
      * @param password the Value in hashtable
      */
-    public void removeAccount(Username username, Password password)
+    public void removeAccount(String username, String password)
             throws IOException {
         try {
             inputFile();
@@ -80,38 +83,40 @@ public class Hash {
         }
     }
 
-    /**
-     * This method checks if the data contains given password
-     * @param password  the password to be checked existence
-     * @return           if contains the password
-     */
-    public boolean containsPassword(Password password) {
-        if (password != null) {
-            return data.containsValue(password);
-        }
-        return false;
-    }
+//    /**
+//     * This method checks if the data contains given password
+//     * @param password  the password to be checked existence
+//     * @return           if contains the password
+//     */
+//    public boolean containsPassword(Password password) {
+//        if (password != null) {
+//            return data.containsValue(password);
+//        }
+//        return false;
+//    }
 
     /**
      * This method checks if the data contains given username
-     * @param username  the username to be checked existence
-     * @return           if contains the username
+     *
+     * @param username the username to be checked existence
+     * @return if contains the username
      */
-    public boolean containsUsername(Username username) {
+    public boolean containsUsername(String username) {
         if (username != null) {
-            return data.containsKey(username);
+            return data.containsKey(Account.fnvHash(username));
         }
         return false;
     }
 
     /**
      * This method checks if the username and password matches
-     * @param username  the username to be checked
-     * @param password  the password to be checked existence
-     * @return           if username and password matches
+     *
+     * @param username the username to be checked
+     * @param password the password to be checked existence
+     * @return if username and password matches
      */
-    public boolean checkCorrectPassword(Username username,
-                                        Password password) {
+    public boolean checkCorrectPassword(String username,
+            String password) {
         try {
             inputFile();
         } catch (IOException e) {
@@ -120,17 +125,32 @@ public class Hash {
         if (!containsUsername(username)) {
             return false;
         }
-        return data.get(username).equals(password);
+        return data.get(username).getHashedPassword()
+                == Account.fnvHash(password);
     }
 
     /**
-     * This method outputs the file and stores it
-     * inside the relativePath. It uses Serialization,
-     * and the output is tmp.ser.
+     * return the assotiated account
+     *
+     * @param username the username of the account
+     * @return The associated Account
+     */
+    public Account getAccount(String username) {
+        try {
+            inputFile();
+        } catch (IOException e) {
+            return null;
+        }
+        return data.get(Account.fnvHash(username));
+    }
+
+    /**
+     * This method outputs the file and stores it inside the relativePath. It
+     * uses Serialization, and the output is tmp.ser.
      */
     private void outputFile() throws IOException {
-        FileOutputStream fileOut =
-                new FileOutputStream(relativePath + "/tmp.ser");
+        FileOutputStream fileOut
+                = new FileOutputStream(relativePath + "/tmp.ser");
         ObjectOutputStream output = new ObjectOutputStream(fileOut);
         output.writeObject(data);
         output.close();
@@ -139,8 +159,8 @@ public class Hash {
     }
 
     /**
-     * This method inputs the file inside the relativePath.
-     * It uses Serialization, and the data is refreshed
+     * This method inputs the file inside the relativePath. It uses
+     * Serialization, and the data is refreshed
      */
     @SuppressWarnings("unchecked")
     private void inputFile() throws IOException {

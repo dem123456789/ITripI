@@ -8,6 +8,9 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     </head>
     <body>
+        <%if(session.getAttribute(JSPStringConstants.ACCOUNT_PARAM)!=null){%>
+            <jsp:forward page="<%=JSPStringConstants.MAIN_JSP%>"/>
+        <%}%>
         <div id="LoginComponentsContainer">
             <form action="/ITripCS2340/Login/" method="POST">
                 <table cellspacing="1" cellpadding="3" border="0" >
@@ -21,8 +24,8 @@
                             <input  <%if(s==""){%>
                                             placeholder = "Account"<%}
                                       else{%>
-                                            value=<%=s%>
-                                    <%}%> maxlength="40" size="25" name=<%=JSPStringConstants.USERNAME_PARAM%> type="text"/>
+                                            value="<%=s%>"
+                                    <%}%> maxlength="40" size="25" name="<%=JSPStringConstants.USERNAME_PARAM%>" type="text"/>
                         </td>
                     </tr>
 
@@ -36,15 +39,14 @@
                             <input  <%if(s==""){%>
                                              placeholder = "Password"<%}
                                       else{%>
-                                             value=<%=s%>
-                                    <%}%> id="password" type="password" size="25" name=<%=JSPStringConstants.PASSWORD_PARAM%> />
+                                             value="<%=s%>"
+                                    <%}%> id="password" type="password" size="25" name="<%=JSPStringConstants.PASSWORD_PARAM%>" />
                         </td>
                     </tr>
                     <tr align="left">
                         <td colspan="2">
                                 <input type="submit" value="Login" name="LogIn" id="LogIn" class="clickButton"/>
-                                <!--<form action="" id="forgotPasswordLink">forgot password</form>-->
-                            <input type="button" onclick="location.href='/ITripCS2340/<%=JSPStringConstants.REGISTER_JSP%>';" value="Register" name="registerButton" id="registerButton" class="clickButton"/>
+                                <input type="submit" value="Register" name="<%=JSPStringConstants.GO_BACK_FLAG%>" id="registerButton" class="clickButton"/>
                         </td>
                     </tr>
                 </table>

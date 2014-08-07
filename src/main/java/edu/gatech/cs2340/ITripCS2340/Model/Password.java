@@ -18,7 +18,7 @@ public class Password implements java.io.Serializable {
 
     /**
      *  The constructor for password..
-     * @param password
+     * @param password  the password in String
      */
     public Password(String password) {
         this.password = password;
@@ -26,7 +26,7 @@ public class Password implements java.io.Serializable {
 
     /**
      * The setter for password.
-     * @param password
+     * @param password  the password in String
      */
     public void setPassword(String password) {
         this.password = password;
@@ -59,8 +59,8 @@ public class Password implements java.io.Serializable {
 
     /**
      * The equals method inherits from Object class
-     * @param obj
-     * @return if two passwords are the same
+     * @param obj  The one to be compared with
+     * @return     if two passwords are the same
      */
     public boolean equals(Object obj) {
         if (this == obj) {
