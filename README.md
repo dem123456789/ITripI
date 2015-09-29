@@ -1,8 +1,13 @@
 # ItripI
 
-ItripI is a trip planner web application. It uses Goolge and Yelp API to filter possible destination like restaurants and hotels based on the schedule and preferences of user.
+ItripI is a trip planner web application using. It uses Goolge and Yelp API to filter possible destination like restaurants and hotels based on the schedule and preferences of user.
 
+## Introduction
 
+1. It uses MVC model to structure the project.
+2. Front-end mainly uses HTML and Javascript and Back-end uses Java
+3. I fell that the authentication process of Google and Yelp API is tedious
+4. This is the first time I build a web application
 
 ## Contributing
 
