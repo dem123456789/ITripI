@@ -1,3 +1,26 @@
+# ItripI
+
+ItripI is a trip planner web application. It uses Goolge and Yelp API to filter possible destination like restaurants and hotels based on the schedule and preferences of user.
+
+
+
+## Contributing
+
+1. Fork
+2. Create your feature branch: `git checkout -b my-new-feature`
+3. Commit your changes: `git commit -am 'Add some feature'`
+4. Push to the branch: `git push origin my-new-feature`
+5. Submit a pull request
+
+
+## Credits
+
+*Fan Chen  
+Enmao Diao  
+Jonathan Hunter  
+Penlin Li  
+Yuying Zhang*
+
 <h2>Problem Description</h2>
 
 <p>You are taking a trip to a new city and would like to plan your itinerary -- where to eat, what to see and do -- based on where you're staying.  You want a single application in which you can specify the times you're available for meals and activities, your preferences for ratings and cost, and your transportation mode, and have the software give you a trip itinerary based on your preferences and the restaurants and attractions within a specified distance from your accomodations.</p>
@@ -191,3 +214,27 @@
 <ul>
 <li>Present project to class (5 points)</li>
 </ul>
+
+## License
+
+The MIT License (MIT)
+
+Copyright (c) [2015] [Enmao Diao, Fan Chen, Penlin Li, Yuying Zhang, Jonathan Hunter]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
