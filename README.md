@@ -2,6 +2,7 @@
 
 ITripI is a trip planner web application using. It uses Goolge and Yelp API to filter possible destination like restaurants and hotels based on the schedule and preferences of user.  
 ![Trip Planner](https://github.com/dem123456789/ITripI/blob/master/demo/Search%20for%20restaurants.PNG "Restaurants")
+![Trip Planner](https://github.com/dem123456789/ITripI/blob/master/demo/show_route.PNG "Route")
 ## Introduction
 
 1. It uses MVC model to structure the project.
